@@ -1,1 +1,0 @@
-# vinlok.github.io
