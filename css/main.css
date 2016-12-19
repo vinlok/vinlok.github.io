@@ -1,20 +1,32 @@
 body {
     margin: 60px auto;
     width: 70%;
+    font-family: 'HelveticaNeue','Helvetica','Arial','sans-serif';
+    font-size: 1.2em;
 }
-nav ul, footer ul {
+
+nav ul, footer ul{
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    vertical-align: center;
+    text-align: center;
 }
+
 nav ul li, footer ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 50px;
+    padding-right: 50px;
+    font-weight: bold;
+    font-size: 1em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    border-right: 1px solid #b5d1ff;;
 }
+
 a {
     text-decoration: none;
-    color: #999;
+    color: black
 }
 a:hover {
     text-decoration: underline;
@@ -30,7 +42,7 @@ p {
 }
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+    font-size: 1em;
 }
 
 ul.posts { 
@@ -40,4 +52,10 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+}
+
+#rcorners2 {
+    border-radius: 20px;
+    border: 3px solid #b5d1ff;
+    height: 25px;    
 }
