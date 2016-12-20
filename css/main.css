@@ -3,6 +3,7 @@ body {
     width: 70%;
     font-family: 'HelveticaNeue','Helvetica','Arial','sans-serif';
     font-size: 1.2em;
+
 }
 
 nav ul, footer ul{
@@ -12,6 +13,7 @@ nav ul, footer ul{
     font-weight: bold;
     vertical-align: center;
     text-align: center;
+    margin: 5px;
 }
 
 nav ul li, footer ul li {
@@ -34,7 +36,15 @@ a:hover {
 h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    margin: 0px;
 }
+
+h2 {
+    font-size: 1.5em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+
+}
+
 p {
     font-size: 1.5em;
     line-height: 1.4em;
@@ -58,4 +68,21 @@ ul.posts li {
     border-radius: 20px;
     border: 3px solid #b5d1ff;
     height: 25px;    
+}
+
+#grad1 {
+    height: 200px;
+    background: -webkit-linear-gradient(#b5d1ff, white, #b5d1ff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#b5d1ff, white, #b5d1ff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#b5d1ff, white, #b5d1ff); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#b5d1ff, white, #b5d1ff); /* Standard syntax (must be last) */
+}
+
+#radgrad {
+
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(red, yellow, green); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(red, yellow, green); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(red, yellow, green); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(white,  #b5d1ff, white); /* Standard syntax */
 }
