@@ -1,88 +1,18 @@
-body {
-    margin: 60px auto;
-    width: 70%;
-    font-family: 'HelveticaNeue','Helvetica','Arial','sans-serif';
-    font-size: 1.2em;
+pre {
+
+    width: 100%
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(1, 1, 1, 1);
+    overflow: auto;
 
 }
 
-nav ul, footer ul{
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-    vertical-align: center;
-    text-align: center;
-    margin: 5px;
-}
-
-nav ul li, footer ul li {
-    display: inline;
-    margin-right: 50px;
-    padding-right: 50px;
-    font-weight: bold;
-    font-size: 1em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    border-right: 1px solid #b5d1ff;;
-}
-
-a {
-    text-decoration: none;
-    color: black
-}
-a:hover {
-    text-decoration: underline;
-}
-h1 {
-    font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    margin: 0px;
-}
-
-h2 {
-    font-size: 1.5em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-
-}
-
-p {
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
-}
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: 1em;
-}
-
-ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
-}
-
-ul.posts li {
-    list-style: none;
-}
-
-#rcorners2 {
-    border-radius: 20px;
-    border: 3px solid #b5d1ff;
-    height: 25px;    
-}
-
-#grad1 {
-    height: 200px;
-    background: -webkit-linear-gradient(#b5d1ff, white, #b5d1ff); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#b5d1ff, white, #b5d1ff); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#b5d1ff, white, #b5d1ff); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#b5d1ff, white, #b5d1ff); /* Standard syntax (must be last) */
-}
-
-#radgrad {
-
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-radial-gradient(red, yellow, green); /* Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(red, yellow, green); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(red, yellow, green); /* For Firefox 3.6 to 15 */
-  background: radial-gradient(white,  #b5d1ff, white); /* Standard syntax */
+one-edge-shadow {
+    width: 100%
+    padding: 10px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                overflow: auto;
 }
