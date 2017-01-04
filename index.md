@@ -2,7 +2,7 @@
 layout: default
 title: VinLok
 ---
-<table id="t02" style="margin-top: 250px;margin-bottom:50px;">
+<table id="t02" style="margin-top:250px;margin-bottom:50px;margin-left:0px;">
                 <tr>
                 	<td style="border-right: 4px solid #f1f1f1;"> 
                 		<img src="images/devops-inf-loop.png" style="width:250px;height:150px;">
