@@ -50,6 +50,9 @@ vinlok {
 
 ul.a {
     list-style-type: circle;
+        font-style: italic;
+}
+ul.b {
+    list-style-type: square;
     font-style: italic;
 }
-ul.b {list-style-type: square;}
