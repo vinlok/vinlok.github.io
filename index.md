@@ -2,29 +2,32 @@
 layout: default
 title: VinLok
 ---
-
-
-# A bit of history...
-
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
-
-[ ] sdfsdf
-
-<pre>sdfgsdfgsdfgsdf</pre>
-
-My previous blog site was traditional one running on a LAMP stack powered by Joomala. While it was doing its job fine, the cost of maintaining it ($AWS cost$) and Mysql etc forced me to moved to a new platform. Given the benifits offered by git hub pages, it was the obvious choice here.
-
-<one-edge-shadow >I did not find the documentation on the github pages site that intuitive. It took me quite sometime to get grasp of things and get going. So I decided to write up this blog so that I can refer to it if needed :) </one-edge-shadow >
-
-# The gist:
-```
-1. Jekyll : A static web pagewd generator. To "KISS", you create templates for you webpages, post and then write pages in using "Marddown". Jekyll server will take care of converting the mardown to html format and render them. So, you style your pages once and Jekyll will take care of the rest.
-```
-2. Github: The pages you created in step 1, are then served by github via jekyll.
-
-
-# Steps:
-
-1. 
+<table id="t02" style="margin-top: 250px;margin-bottom:50px;">
+                <tr>
+                	<td style="border-right: 4px solid #f1f1f1;"> 
+                		<img src="images/devops-inf-loop.png" style="width:250px;height:150px;">
+                	</td>
+                	<td  style="text-align:left;border-right: 4px solid #f1f1f1;"> 
+                		<ul class="a">
+  							<li>Plan assuming cloud components will fail!</li>
+ 							<li>Code in small batches</li>
+  							<li>Build with Continuous Integration</li>
+  							<li>Test till you uncover a bug!</li>
+  							<li>Release and deploy with Contunuous Deployment</li>
+  							<li>Operate as if you are flying an airplane!</li>
+  							<li>Monitor proactively keeping customers in mind</li>
+						</ul>
+                	</td>
+                	<td>
+                		<div >
+                    		<p class="mySlides w3-animate-fading" > One machine can do the work of fifty ordinary men.  No machine can do the work of one extraordinary man. <br> - Elbert Hubbard  </br> </p>
+                    		<p class="mySlides w3-animate-fading" > Technology is a word that describes something that doesn’t work yet. <br>  - Douglas Adams   </br> </p>
+                    		<p class="mySlides w3-animate-fading" > The real danger is not that computers will begin to think like men, but that men will begin to think like computers. <br> - Sydney Harris  </br> </p>
+                    		<p class="mySlides w3-animate-fading" > Man is a tool-making animal. <br> - Benjamin Franklin  </br> </p>
+                    		<p class="mySlides w3-animate-fading" > Treat your password like your toothbrush. Don't let anybody else use it, and get a new one every six months. <br> - Clifford Stoll</br> </p>
+                    		<p class="mySlides w3-animate-fading" > Everything is theoretically impossible, until it is done. <br> - Robert A. Heinlein </br> </p>
+						</div>
+                	</td>
+                	
+                </tr>
+		</table>

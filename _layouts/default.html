@@ -1,10 +1,10 @@
-'<!DOCTYPE html>
+<!DOCTYPE html>
 	<html>
 		<head>
 			<title>{{ page.title }}</title>
 			<!-- link to main stylesheet -->
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>'
+		</head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
@@ -17,48 +17,64 @@
 		.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
 		</style>
 		<body>
+		
+		<div class="w3-top w3-center ">
+			<table id="t01" >
+                <tr>
+                    <td><vinlok>Vinayak Lokhande</vinlok></td>
+                </tr>
+		</table>
+			
 
-		<div class="w3-top">
-		  <div class="w3-row w3-large">
-		    <div class="w3-col s3">
-		      <a href="/" class="w3-btn-block w3-light-grey">Home</a>
-		    </div>
-		    <div class="w3-col s3">
-		      <a href="/cv" class="w3-btn-block w3-light-grey">About Me</a>
-		    </div>
-		    <div class="w3-col s3">
-		      <a href="/blog" class="w3-btn-block w3-light-grey">Blogs</a>
-		    </div>
-		    <div class="w3-col s3">
-		      <a href="#contact" class="w3-btn-block w3-light-grey">Linkedin</a>
-		    </div>
-		  </div>
+		  	<div class="w3-row w3-large">
+		    	<div class="w3-col s3">
+		      		<a href="/" class="w3-btn-block w3-light-grey">Home</a>
+		    	</div>
+		    	<div class="w3-col s3">
+		      		<a href="/cv" class="w3-btn-block w3-light-grey">About Me</a>
+		    	</div>
+		    	<div class="w3-col s3">
+		      		<a href="/blog" class="w3-btn-block w3-light-grey">Blogs</a>
+		    	</div>
+		    	<div class="w3-col s3">
+		      		<a href="#contact" class="w3-btn-block w3-light-grey">Linkedin</a>
+		    	</div>
+		  	</div>
 		</div>
-		
-		<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
-		
-		  <div class="w3-panel">
-		    <h1><b>Vinayak Lokhandee</b></h1>
-		    <p></p>
-		  </div>
-		
-					<div class="container">
+		<div class="container w3-content" style="margin-top: 250px;margin-bottom:50px;max-width:1100px;">
 					
 					{{ content }}
 					
-	    </div><!-- /.container -->
-		<footer class="w3-container w3-padding-32 w3-light-grey w3-center">
-		  <a href="#" class="w3-btn w3-padding w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+	    </div>
+		
+		<footer class="w3-container w3-padding-22 w3-light-grey w3-center">
+		  <a href="#" class="w3-btn w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
 		  <div class="w3-xlarge w3-section">
 		    <i class="fa fa-facebook-official w3-hover-text-indigo"></i>
-		    <a href="#" <i class="fa fa-instagram w3-hover-text-purple"></i>
-		    <i class="fa fa-google w3-hover-text-yellow"></i>
-		    <i class="fa fa- w3-hover-text-red"></i>
-		    <i class="fa fa-twitter w3-hover-text-light-blue"></i>
-		    <i class="fa fa-linkedin w3-hover-text-indigo"></i>
+		    <a href="mailto:lokhande.vinayak@gmail.com" title="Gmail" <i class="fa fa-google w3-hover-text-red"></i> </a>
+		    <a href="https://www.linkedin.com/in/vinlok" <i class="fa fa-linkedin w3-hover-text-indigo"></i> </a>
 		  </div>
-		  <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css<		/a></p>
+		  <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css </a></p>
+		  <p>Disclaimer: All the views expressed here are my own and by no strech of imagination belong to any organisation and company </p>
 		</footer>
+
+
+		<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 15000);    
+}
+</script>
 
 		</body>
 	</html>

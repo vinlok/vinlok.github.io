@@ -1,0 +1,36 @@
+pre {
+
+    width: 100%
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(1, 1, 1, 1);
+    overflow: auto;
+
+}
+
+one-edge-shadow {
+    width: 100%
+    padding: 10px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                overflow: auto;
+}
+
+vinlok {
+    font-size:50px;
+    font-family: Apple Chancery;
+    margin-top:10px;
+    width:100%;
+
+
+    background-color: white;
+    border-spacing: 40px;
+    padding-top: 0px;
+    padding-left: 500px;
+    padding-right: 500px;
+    padding-top: 0ps;
+    text-align: center;
+}
+
+
