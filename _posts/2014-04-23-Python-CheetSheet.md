@@ -26,29 +26,157 @@ date: 2016-12-25
 
 # List:
 
-- List are declared 
+> - List are declared using square brackets. 
+> - Items in a list need not be of same type:
 
-List items need not be of same type:
+> a = ['spam', 'eggs', 100, 1234]
 
-a = ['spam', 'eggs', 100, 1234]
+> - Indices starts at 0. Thus, a[0] means 'spam'
 
-Indices starts at 0.
+> - List are mutable. You can change a specific indices of list
 
-thus, a[0] means 'spam'
+> ### Useful functions
+> - To get length : len()
+> - To insert an element : insert()
 
-List as mutable. You can change a specific indices of list
+>> a.insert(0,"bin")
 
-len() also applies to list
+>>['bin', 'spam', 'eggs', 100, 1234] 
 
-
-Build in function insert:
-
-a.insert(0,"bin")
-
-['bin', 'spam', 'eggs', 100, 1234] 
-
-
-Checking for given value in list
-
-if bin in a:
+> - Checking for given value in list
+>if bin in a:
      print "found"
+
+# Loops:
+>### While:
+>>syntax :
+
+>>while b < 100:
+     print b
+
+>### For:
+>>words = ['cat', 'window', 'defenestrate']
+
+>>for w in words: 
+
+>>... print w, len(w) 
+
+
+>### range() function:
+
+>>- Range function is quivalent of sequence function of list:
+
+>>range(10)
+
+>>range(5,10)
+
+>- It can be used to iterate over in for loop. Example:
+
+>>for i in range(10):
+
+
+>- You can iterate over an list using len and range combination:
+
+>>a = ['Mary', 'had', 'a', 'little', 'lamb']
+>> for i in range(len(a)):
+>>...     print i, a[i]
+
+# Command Line Arguments
+
+> Module: import sys
+
+> Starts with  0. 0 is the name of the script invoking it.
+
+> sys.argv[1]
+
+> len(sys.argv)
+
+# File I/O
+
+> file object = open(file_name [, access_mode][, buffering])
+
+> *Below are the supported access modes:*
+
+>> r	Opens a file for reading only. The file pointer is placed at the beginning of the file. This is the default mode.
+
+>> rb	Opens a file for reading only in binary format. The file pointer is placed at the beginning of the file. This is the default mode.
+
+>> r+	Opens a file for both reading and writing. The file pointer will be at the beginning of the file.
+
+>> rb+	Opens a file for both reading and writing in binary format. The file pointer will be at the beginning of the file.
+
+>> w	Opens a file for writing only. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing.
+
+>> wb	Opens a file for writing only in binary format. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing.
+
+>> w+	Opens a file for both writing and reading. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing.
+
+>> wb+	Opens a file for both writing and reading in binary format. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing.
+
+>> a	Opens a file for appending. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing.
+
+>> ab	Opens a file for appending in binary format. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing.
+
+>> a+	Opens a file for both appending and reading. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing.
+
+>> ab+	Opens a file for both appending and reading in binary format. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing.
+
+
+> **Examples**:
+>> Opening a file:
+>> \#!/usr/bin/python 
+
+>> \# Open a file 
+
+>> fo = open("foo.txt", "wb") 
+
+>> fo.write( "Python is a great language.\nYeah its great!!\n"); 
+
+>> \# Close opend file 
+
+>> fo.close()
+
+>> Read file into array:
+
+>>\#!/usr/bin/python
+
+>> import os
+
+>> import pdb
+
+>> with open('/tmp/serverlist') as f:
+
+>>    server_names = f.read().splitlines();
+
+>>    for i in range(len(server_names)):
+
+>>    print server_names[i]
+
+# Function:
+
+> - Defining a function:
+
+>> def fib(n):  # This defines the function
+
+>>     """Write what you want to say about the function. This will be referred when some one has to browse through the function code"""
+
+>>     for i in range(n):
+
+>>          print i
+
+> - Arguments passed to functions in Python are call by value. i.e., when the function is called from the program, the variables are actually copied to the function as new symbol table.
+
+
+Values Returned by functions:
+
+By default all function would return "None" value.
+
+You can have a function return a specific value:
+
+>>> def add(a, b):
+...     c=a+b
+...     return c
+...
+>>> add(4,5)
+
+A method is a function that ‘belongs’ to an object and is named obj.methodname, where objis some object (this may be an expression), and methodname is the name of a method that is defined by the object’s type. Different types define different methods. Methods of different types may have the same name without causing ambiguity. 
