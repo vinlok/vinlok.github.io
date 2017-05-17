@@ -156,27 +156,22 @@ date: 2016-12-25
 
 > - Defining a function:
 
->> def fib(n):  # This defines the function
-
->>     """Write what you want to say about the function. This will be referred when some one has to browse through the function code"""
-
->>     for i in range(n):
-
->>          print i
+<pre> def fib(n):  # This defines the function
+"""Write what you want to say about the function. This will be referred when some one has to browse through the function code"""
+for i in range(n):
+print i </pre>
 
 > - Arguments passed to functions in Python are call by value. i.e., when the function is called from the program, the variables are actually copied to the function as new symbol table.
 
 
-Values Returned by functions:
+> - Values Returned by functions:
+>> By default all function would return "None" value.
+>> You can have a function return a specific value:
 
-By default all function would return "None" value.
-
-You can have a function return a specific value:
-
->>> def add(a, b):
+<pre> def add(a, b):
 ...     c=a+b
 ...     return c
 ...
->>> add(4,5)
+>>> add(4,5) </pre>
 
-A method is a function that ‘belongs’ to an object and is named obj.methodname, where objis some object (this may be an expression), and methodname is the name of a method that is defined by the object’s type. Different types define different methods. Methods of different types may have the same name without causing ambiguity. 
+> - A method is a function that ‘belongs’ to an object and is named obj.methodname, where objis some object (this may be an expression), and methodname is the name of a method that is defined by the object’s type. Different types define different methods. Methods of different types may have the same name without causing ambiguity. 
