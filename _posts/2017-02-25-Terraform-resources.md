@@ -2,6 +2,7 @@
 layout: post
 title: "Terraform: Most commonly used resources"
 date: 2017-03-25
+excerpt_separator: <!--more-->
 ---
 
 # Terraform resources:
@@ -21,6 +22,8 @@ resource aws_instance "vintest" {
 	}
 }
 </pre>
+
+<!--more-->
 
 ### aws_security_group:
 
