@@ -2,13 +2,14 @@
 layout: post
 title: "Github Pages in less than 30 mins!"
 date: 2016-12-01
+excerpt_separator: <!--more-->
 ---
-
-# A bit of history...
 
 My previous blog site was traditional one running on a LAMP stack powered by Joomla. While it did suffice need of typical blog site(and helped to scratch my itch to host my own server/site), the cost of maintaining it ($AWS$) and Mysql etc forced me to moved to a new platform. Given the benifits offered by Github pages, it was the obvious choice here (And well, you can get hands on git!).
 
 I did not find the documentation on the github pages site that intuitive. It took me quite sometime to get grasp of things and get going. So I decided to write up this blog so that I can refer to it if needed :)
+
+<!--more-->
 
 # The gist:
 
@@ -40,3 +41,6 @@ At this point, you should be able to access your site locally on default port of
 5. Push the locally created site to the master branch of this repo.
 
 6. And you are all set! Github pages might take few mins to get your site ready. Once ready, you should be able to access it as : <youname>.github.io
+
+https://jekyllrb.com/docs/posts/
+http://jmcglone.com/guides/github-pages/
