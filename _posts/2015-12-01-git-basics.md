@@ -13,7 +13,6 @@ One of the most important job any SCM does it to give us ability to see what has
 
 <!--more-->
 
-the
 
 ## How git differs from other VCS?
 
