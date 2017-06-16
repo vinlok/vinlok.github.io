@@ -273,7 +273,7 @@ git checkout master
 ```
 
 ### Tagging
-Tagging is way by which you can name/version a given checkout. This makes it simple to refer to in git:
+-Tagging is way by which you can name/version a given checkout. This makes it simple to refer to in git:
 ```
 git tag 1.0.0 git tag 1.1.2 054bd86eea20eb99ae171f1b1722ef1978b2ac12
 git tag 1.1.3 8c06a69a57c412554f0ad7912145f14821662fb3
