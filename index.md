@@ -5,7 +5,7 @@ title: VinLok
 
 
 <div style="width:100%;margin-left:auto;margin-right:auto">
-    <img src="images/devops-inf-loop-with-text.jpg" style="width=100%;margin-left:auto;margin-right:auto;display: block">
+    <img src="images/devops-inf-loop-small.jpg" style="width=100%;margin-left:auto;margin-right:auto;display: block">
 </div>
 
 
