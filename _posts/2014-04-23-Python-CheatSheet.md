@@ -2,17 +2,24 @@
 layout: post
 title: "Python Cheatsheet"
 date: 2016-12-25
+excerpt_separator: <!--more-->
 ---
 
-# Doc Strings
+Python is a programming language that lets you work more quickly and integrate your systems more effectively - From python.org.
+Wherever you there is a need of fast prototyping, Python is the most apt candidate. While is arguably not a full object oriented language, however, it philosophy of "batties included" makes it one of the most popular language.
+
+In this blog, we will go through the basics of Python and some of the best practices that I have learned.
+
+<!--more-->
+
+### Doc Strings
 
 - Doc strings are a way to document your python function, module etc. This doc can then be retrieved by using "dir" on the function, module etc.
 - They are declared with """ Your description here """ and can span over multiple lines.
 - Follow the best practices such as first line should be small and begin with capital letter and end with .
 - If more lines are needed lines, the second line should be blank.
 
-# Intermezzo coding style
-
+### Intermezzo coding style
 - Use 4-space indentation, and no tabs.
 - Use blank lines to separate functions and classes, and larger blocks of code inside functions.
 - When possible, put comments on a line of their own.
@@ -20,12 +27,10 @@ date: 2016-12-25
 - Use spaces around operators and after commas, but not directly inside bracketing constructs: a = f(1, 2) + g(3, 4). 
 
 
-# Input:
-
+### Input:
 - Input in python can be done using: a = raw_input()
 
-# List:
-
+### List:
 > - List are declared using square brackets. 
 > - Items in a list need not be of same type:
 
@@ -35,7 +40,7 @@ date: 2016-12-25
 
 > - List are mutable. You can change a specific indices of list
 
-> ### Useful functions
+### Useful functions
 > - To get length : len()
 > - To insert an element : insert()
 
@@ -47,14 +52,14 @@ date: 2016-12-25
 >if bin in a:
      print "found"
 
-# Loops:
->### While:
+### Loops:
+>#### While:
 >>syntax :
 
 >>while b < 100:
      print b
 
->### For:
+>#### For:
 >>words = ['cat', 'window', 'defenestrate']
 
 >>for w in words: 
@@ -81,7 +86,7 @@ date: 2016-12-25
 >> for i in range(len(a)):
 >>...     print i, a[i]
 
-# Command Line Arguments
+### Command Line Arguments
 
 > Module: import sys
 
@@ -152,7 +157,7 @@ date: 2016-12-25
 
 >>    print server_names[i]
 
-# Function:
+### Function:
 
 > - Defining a function:
 
