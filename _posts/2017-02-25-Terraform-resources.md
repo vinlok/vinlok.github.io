@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Terraform: Most commonly used resources"
-date: 2017-03-25
+date: 2017-02-27
 excerpt_separator: <!--more-->
 weight: 1000
 ---

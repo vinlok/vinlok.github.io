@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Github Pages in less than 30 mins!"
-date: 2016-12-01
+date: 2017-4-01
 excerpt_separator: <!--more-->
 ---
 

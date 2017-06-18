@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python Cheatsheet"
-date: 2016-12-25
+date: 2017-3-25
 excerpt_separator: <!--more-->
 ---
 
