@@ -15,4 +15,5 @@ title: VinLok
 <p class="mySlides w3-animate-fading blocktext" > Man is a tool-making animal. - Benjamin Franklin </p>
 <p class="mySlides w3-animate-fading blocktext" > Treat your password like your toothbrush. Don't let anybody use it, and get a new one every six months. - Clifford Stoll</p>
 <p class="mySlides w3-animate-fading blocktext" > Everything is theoretically impossible, until it is done. - Robert A. Heinlein </p>
+<p class="mySlides w3-animate-fading blocktext" > We learn from history that we do not learn from history.” --Georg Wilhelm Friedrich Hegel </p>
 

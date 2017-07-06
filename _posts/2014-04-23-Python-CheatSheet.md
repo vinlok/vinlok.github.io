@@ -6,7 +6,7 @@ excerpt_separator: <!--more-->
 ---
 
 Python is a programming language that lets you work more quickly and integrate your systems more effectively - From python.org.
-Wherever you there is a need of fast prototyping, Python is the most apt candidate. While is arguably not a full object oriented language, however, it philosophy of "batties included" makes it one of the most popular language.
+Wherever there is a need of fast prototyping, Python is the apt candidate. While it is arguably not a full object oriented language, however, its philosophy of "battries included" makes it one of the most popular language.
 
 In this blog, we will go through the basics of Python and some of the best practices that I have learned.
 
@@ -15,12 +15,13 @@ In this blog, we will go through the basics of Python and some of the best pract
 ### Doc Strings
 
 - Doc strings are a way to document your python function, module etc. This doc can then be retrieved by using "dir" on the function, module etc.
+- You should be using Doc Strings for all your functions and modules. This is a mean to share details about your code to any one using it.
 - They are declared with """ Your description here """ and can span over multiple lines.
 - Follow the best practices such as first line should be small and begin with capital letter and end with .
 - If more lines are needed lines, the second line should be blank.
 
 ### Intermezzo coding style
-- Use 4-space indentation, and no tabs.
+- Use 4-space indentation, and NO tabs.
 - Use blank lines to separate functions and classes, and larger blocks of code inside functions.
 - When possible, put comments on a line of their own.
 - Use docstrings.
