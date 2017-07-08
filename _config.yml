@@ -1,4 +1,5 @@
 name: Vinayak
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
-
+paginate: 4
+gems: [jekyll-paginate]

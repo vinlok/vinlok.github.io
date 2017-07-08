@@ -5,7 +5,10 @@ date: 2017-06-27
 ---
 
 
-# About Me
+### About Me
+
+![Vinayak Lokhande](/images/vinlok.jpg "Vinayak Lokhande")
+
 
 Hey there! This is Vinayak Lokhande. I am a Linux engineer at heart who loves to solve problems. I work in San Francisco as Principal DevOps Engineer. 
 
