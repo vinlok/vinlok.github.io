@@ -9,12 +9,12 @@ Ruby is amazing language being very expressive language backed up by a very stro
 
 
 <!--more-->
-You need the following to get going :
+Below are the pre-requisites:
 
-Installer:
+Ruby Installer:
 ruby-install: https://github.com/postmodern/ruby-install#readme
 
-Manager:
+Ruby Manager:
 chruby: https://github.com/postmodern/chruby#readme
 
 ### Steps:
