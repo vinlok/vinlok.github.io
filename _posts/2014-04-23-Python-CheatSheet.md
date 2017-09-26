@@ -6,7 +6,7 @@ excerpt_separator: <!--more-->
 ---
 
 Python is a programming language that lets you work more quickly and integrate your systems more effectively - From python.org.
-Wherever there is a need of fast prototyping, Python is the apt candidate. While it is arguably not a full object oriented language, however, its philosophy of "battries included" makes it one of the most popular language.
+Wherever there is a need of fast prototyping, Python is the apt candidate. While it is arguably not a full object oriented language, however, its philosophy of "batteries included" makes it one of the most popular language.
 
 In this blog, we will go through the basics of Python and some of the best practices that I have learned.
 
@@ -70,7 +70,7 @@ In this blog, we will go through the basics of Python and some of the best pract
 
 >### range() function:
 
->>- Range function is quivalent of sequence function of list:
+>>- Range function is equivalent of sequence function of list:
 
 >>range(10)
 
@@ -180,4 +180,4 @@ print i </pre>
 ...
 >>> add(4,5) </pre>
 
-> - A method is a function that ‘belongs’ to an object and is named obj.methodname, where objis some object (this may be an expression), and methodname is the name of a method that is defined by the object’s type. Different types define different methods. Methods of different types may have the same name without causing ambiguity. 
+> - A method is a function that ‘belongs’ to an object and is named obj.methodname, where obj is some object (this may be an expression), and method name is the name of a method that is defined by the object’s type. Different types define different methods. Methods of different types may have the same name without causing ambiguity. 

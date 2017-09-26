@@ -5,7 +5,7 @@ date: 2017-4-01
 excerpt_separator: <!--more-->
 ---
 
-My previous blog site was traditional one running on a LAMP stack powered by Joomla. While it did suffice need of typical blog site(and helped to scratch my itch to host my own server/site), the cost of maintaining it ($AWS$) and MySql etc forced me to moved to a new platform. Given the benifits offered by Github pages, it was the obvious choice here.
+My previous blog site was traditional one running on a LAMP stack powered by Joomla. While it did suffice need of typical blog site(and helped to scratch my itch to host my own server/site), the cost of maintaining it ($AWS$) and MySql etc forced me to moved to a new platform. Given the benefits offered by Github pages, it was the obvious choice here.
 
 I did not find the documentation on the github pages site that intuitive. It took me quite sometime to get grasp of things and get going. So I decided to write up this blog so that I can refer to it if needed :)
 

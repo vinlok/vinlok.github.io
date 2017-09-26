@@ -5,10 +5,10 @@ date: 2015-12-01
 excerpt_separator: <!--more-->
 ---
 
-OK. So you are an devops engineer and a religious devOps engineer should be practicsing and using Git. Not to mention the enormous benifits provided by git, its without doubt is the best SCM available there.
-Git is different from the other SCM's available in market. This ariticle aims at basic concepts of git with highlight on practical and useful commands.
+OK. So you are an devops engineer and a religious devOps engineer should be practicing and using Git. Not to mention the enormous benefits provided by git, its without doubt is the best SCM available there.
+Git is different from the other SCM's available in market. This article aims at basic concepts of git with highlight on practical and useful commands.
 
-One of the most important job any SCM does it to give us ability to see what has changes in data/files over the period of time, and revert to any previous change when needed. Most of the SCM acheive this by maintaing a list of file based changes. Git, on the other hand does this differently and leverages snapshots.
+One of the most important job any SCM does is to give us ability to see what has changed in data/files over the period of time, and revert to any previous change when needed. Most of the SCM achieve this by maintaining a list of file based changes. Git, on the other hand does this differently and leverages snapshots.
 
 <!--more-->
 
@@ -20,7 +20,7 @@ As aforesaid, git uses snapshot to store information about what has changed. Eve
 Things to keep in mind regarding git:
 
 - Almost of the operations are local.
-- To examplify to see a list of changes done of a file a month back, git does not goes to internet. Rather, it can refer to the local database it stores.
+- To exemplify to see a list of changes done of a file a month back, git does not goes to Internet. Rather, it can refer to the local database it stores.
 - There are not many things you *cannot* do if you are not online using git.
 
 ---
@@ -34,7 +34,7 @@ To relate with Git commands:
 
 1. Working directory (You modify files here): git status will show these modified files.
 2. Index : git add [-A or file list ] will mark the files you have selected to be added to the next commit.
-3. Commited(HEAD): git commit -m "some meaning full message": This will create a snapshot with details of what has changed in the files added in Index stage.
+3. Commited (HEAD): git commit -m "some meaning full message": This will create a snapshot with details of what has changed in the files added in Index stage.
 
 Alright, enough of theory, time to put git commands line in action:
 
@@ -86,7 +86,7 @@ heredoc> EOF
 $cat sample.txt
 From vinlok
 ```
-- Running git status on this repo will show that sample.txt has changed. At this point it is in modfied stage (remmber the three stages of git?)
+- Running git status on this repo will show that sample.txt has changed. At this point it is in modified stage (remember the three stages of git?)
 ```
 $git status --short
 ?? sample.txt
@@ -97,7 +97,7 @@ $git add sample.txt
 $git status --short
 A  sample.txt
 ```
-- Lets further move it to next stage which is commited:
+- Lets further move it to next stage which is committed:
 git commit -m "Creating sample.txt with content from user vinlok"
 
 - Lets push this file to github server repo.
@@ -187,8 +187,8 @@ Text from vinlok
 >>>>>>> bccddd36650f678c18598f35b1500bd2722ad49b
 ```
 
-- Lets dicipher the above. The text above "========" is what vinrock has added and the text below that is what is present on HEAD.
-- Open the file in your favourite text editor, remove the lines with <<<<, ===== and >>>>, then keep the text you want to be in the file.
+- Lets decipher the above. The text above "========" is what vinrock has added and the text below that is what is present on HEAD.
+- Open the file in your favorite text editor, remove the lines with <<<<, ===== and >>>>, then keep the text you want to be in the file.
 - Do a git add sample.txt and git commit -m "Resolved the conflict on line no 2" and a git push.
 
 #### Example 2:
@@ -201,7 +201,7 @@ README.md   sample.txt  sample2.txt
 ```
 - Now in vinlok/repo1 delete sample2.txt and push the changes to HEAD.
 
-- Now in vinrock/repo1, WITHOUT git pull, edit the sample2.txt and do a git push to HEAD. You will get the same error as metioned above. Now, do a git pull, the error shown will be different:
+- Now in vinrock/repo1, WITHOUT git pull, edit the sample2.txt and do a git push to HEAD. You will get the same error as mentioned above. Now, do a git pull, the error shown will be different:
 ```
 remote: Counting objects: 2, done.
 remote: Compressing objects: 100% (1/1), done.
@@ -260,7 +260,7 @@ More details can be found here: https://git-scm.com/book/en/v2/Git-Basics-Viewin
 
 ### Branching
 
-Braching is git is used to develop code/features isolated from different user. The idea here is to get the latest code from HEAD and then branch out locally. Now you have luxury to work on two braches: HEAD and the new branch you have created.
+Branching is git is used to develop code/features isolated from different user. The idea here is to get the latest code from HEAD and then branch out locally. Now you have luxury to work on two branches: HEAD and the new branch you have created.
 
 - This is how you create a branch:
 ```
