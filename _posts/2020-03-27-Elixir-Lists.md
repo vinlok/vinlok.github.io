@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Elixir Lists"
-date: 2018-05-13
+date: 2020-03-27
 excerpt_separator: <!--more-->
 categories: ['Elixir']
 ---
