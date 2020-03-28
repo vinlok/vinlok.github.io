@@ -3,6 +3,7 @@ layout: post
 title: "Go Lang Cheat Sheet"
 date: 2018-05-13
 excerpt_separator: <!--more-->
+categories: ['golang']
 ---
 
 This blog is a cheat sheet for Go lang. A quick reference for type of variables , loops, comments, conditional operators, strings, slices etc.
