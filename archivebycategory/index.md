@@ -4,7 +4,7 @@ title: Post by Category
 permalink: /categoryview/
 sitemap: false
 ---
-<div style="margin-left:auto;margin-right:auto;width:60%;>
+<div style="margin-left:auto;margin-right:auto;width:60%;">
     {% assign categories = site.categories | sort %}
     {% for category in categories %}
         <span class="site-tag">
@@ -15,7 +15,7 @@ sitemap: false
     {% endfor %}
 </div>
 
-<div id="index" style="margin-left:auto;margin-right:auto;width:60%;>
+<div id="index" style="margin-left:auto;margin-right:auto;width:60%;">
     {% for category in categories %}
         <a name="{{ category[0] }}"></a>
         <h3>{{ category[0] | replace:'-', ' ' }} ({{ category | last | size }})</h3>
