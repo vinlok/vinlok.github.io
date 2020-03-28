@@ -1,6 +1,14 @@
 ---
- categories: ['Elixir']
+layout: post
+title: "Elixir Tools"
+date: 2018-05-13
+excerpt_separator: <!--more-->
+categories: ['Elixir']
 ---
+
+This blog details various Elixir tools
+
+<!--more-->
 
 ### Mix
 Mix tool is installed default during the elixir installation on Mac using Brew. Mix can be used for:
