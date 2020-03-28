@@ -23,10 +23,7 @@ sitemap: false
         {% for post in sorted_posts %}
             {%if post.categories contains category[0]%}
                 <li style="margin-left:auto;margin-right:auto;width:90%;">
-                <h4>
-                    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }} 
-                    </a>
-                </h4>
+                <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a>
                 <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
             </li>
             {%endif%}
