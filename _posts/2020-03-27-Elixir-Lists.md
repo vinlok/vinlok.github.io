@@ -22,6 +22,7 @@ iex(14)> [1,a,2,b,3]
 iex(14)> [1,"a",2,"b",3]
 [1, "a", 2, "b", 3]
 ```
+- You can use single quotes in list, however, it is a convention to use single quotes in Elixir code.
 
 - List can contain sublist
 ```

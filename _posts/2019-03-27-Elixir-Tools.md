@@ -47,10 +47,13 @@ Interactive Elixir (1.7.4) - press Ctrl+C to exit (type h() ENTER for help)
 ```
 
 ### iex : (IEx shell)
+- iex -S mix : To start a shell
 - note: the first line in the iex shows that elixir runs on top of erlang vm
 - Exit from shell: ctrl + c and then a
 - Getting help: h() . Here you are calling a funtion h with no variables. This funtion will retrun :ok
 - pwd()
 - cd ".." or cd "/user/vinlok/" (note, you need to provide the path in quotes)
 - ls()
+- To recompile, just use the command : Recompile
+
 
