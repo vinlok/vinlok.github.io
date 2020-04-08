@@ -2,6 +2,7 @@
 layout: post
 title: "Go Lang Cheat Sheet"
 date: 2018-05-13
+categories: ['Programming']
 excerpt_separator: <!--more-->
 categories: ['golang']
 ---

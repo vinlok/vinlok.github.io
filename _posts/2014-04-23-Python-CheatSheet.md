@@ -2,6 +2,7 @@
 layout: post
 title: "Python Cheatsheet"
 date: 2017-3-25
+categories: ['Python']
 excerpt_separator: <!--more-->
 ---
 

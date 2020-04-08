@@ -2,8 +2,8 @@
 layout: post
 title: "Terraform: Most commonly used resources"
 date: 2017-02-27
+categories: ['DevOps']
 excerpt_separator: <!--more-->
-weight: 1000
 ---
 
 Terraform has plethora of resources for AWS provider. While terraform resources are very well documented here: https://www.terraform.io/docs/providers/aws/r/instance.html#, this blog tries to list the most frequently used with all the options available and documented in one place.

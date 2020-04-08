@@ -3,7 +3,7 @@ layout: post
 title: "DNS"
 date: 2020-03-27
 excerpt_separator: <!--more-->
-categories: ['Infrastructure']
+categories: ['Basics']
 ---
 
 What is private zone and public zone? Route 53 how it works.

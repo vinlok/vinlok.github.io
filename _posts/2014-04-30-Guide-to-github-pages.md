@@ -2,6 +2,7 @@
 layout: post
 title: "Github Pages in less than 30 mins!"
 date: 2017-4-01
+categories: ['DevOps']
 excerpt_separator: <!--more-->
 ---
 

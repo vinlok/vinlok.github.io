@@ -16,6 +16,10 @@ Mix tool is installed default during the elixir installation on Mac using Brew. 
 1.  Create a new project
     ```
     mix new <projet name>
+
+    mix new cards
+    or
+    mix new cards --app cards #to specify the name of module if it is differen than project name.
     ```
     This will create template files as below:
 ```
@@ -54,6 +58,27 @@ Interactive Elixir (1.7.4) - press Ctrl+C to exit (type h() ENTER for help)
 - pwd()
 - cd ".." or cd "/user/vinlok/" (note, you need to provide the path in quotes)
 - ls()
-- To recompile, just use the command : Recompile
 
 
+**Compiling Code**
+1. You need to be in project directory created by mix command
+2. Run iex -S mix :
+    -S takes the mix.exs as argument. This script is generated when you created the project using the mix new command
+3. This will fire up the iex shell and compile the mix.exs script
+4. If you have made changes to the .ex file, you can recompile using the "recompile command"
+
+**Running the compiled code**
+
+Steps:
+1. Once you have compiled the code using the iex -S mix command, you will be in the shell as below:
+```
+iex -S mix
+Erlang/OTP 21 [erts-10.1.1] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [hipe] [dtrace]
+
+Compiling 1 file (.ex)
+
+call the function as:
+
+module.function_name(argument_value)
+Drop.fall_velocity(20)
+```

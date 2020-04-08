@@ -2,6 +2,7 @@
 layout: post
 title: "Creating Docker Images using Docker Build "
 date: 2015-09-08
+categories: ['DevOps']
 excerpt_separator: <!--more-->
 ---
 

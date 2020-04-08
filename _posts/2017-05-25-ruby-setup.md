@@ -2,6 +2,7 @@
 layout: post
 title: "Getting started with Ruby"
 date: 2017-05-25
+categories: ['Programming']
 excerpt_separator: <!--more-->
 ---
 
