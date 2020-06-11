@@ -18,4 +18,9 @@ This post talk about key differences between OOP vs Functional languages.
 1. Module will have a function which will produce a result/data.
 2. The result/data is fetched to other function which can perform come action on it.
 
-
+- In elixir, we never modify the original variable when it is passed to a function. Example:
+```
+a=[1,2,3]
+Enum.shuffle(a)
+```
+Here a remains same. In the background, elixir will copy the var content in mem, and pass to Enum and shuffled contect will be returned. "a" variable remains same throughout.

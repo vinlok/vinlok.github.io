@@ -10,11 +10,12 @@ categories: ['Elixir']
 Atoms technically are just another datatype in elixir.
 
 Atoms:
-- Start with :
+- Starts with :
 - can contain _ and @ symbols. Examples: vinayak_lokhande, vinayak@lokhande
 - can be string: 'vinayak lokhande'
 - keep it simple by using all lowercase.
 - have a value same as that of the text. Example:
+- They are something similar to string.
 
 ```
 iex(6)> :vinayak

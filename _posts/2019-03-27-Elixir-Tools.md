@@ -11,7 +11,7 @@ This blog details various Elixir tools
 <!--more-->
 
 ### Mix
-Mix tool is installed default during the elixir installation on Mac using Brew. Mix can be used for:
+Mix tool is installed default during the elixir installation on Mac using Brew. Mix can be used to:
 
 1.  Create a new project
     ```
@@ -29,7 +29,7 @@ Mix tool is installed default during the elixir installation on Mac using Brew. 
 │   └── config.exs
 ├── lib
 │   └── cards.ex --> This is where the code lives
-├── mix.exs
+├── mix.exs --> This is where you specify the dependencies, details of our project.
 └── test
     ├── cards_test.exs
     └── test_helper.exs
@@ -49,6 +49,20 @@ Erlang/OTP 21 [erts-10.1.1] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threa
 
 Interactive Elixir (1.7.4) - press Ctrl+C to exit (type h() ENTER for help)
 ```
+
+- Adding dependency for a project can be done by editing deps section of mix.exs file:
+```
+ defp deps do
+    [
+      # {:dep_from_hexpm, "~> 0.3.0"},
+      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:ex_doc, "~> 0.12"}
+    ]
+  end
+
+```
+- This is essentially array of tuples with first value of tuple at atom naming the dependecy and second value the version. ~> is important to specify.
+- To install the dependency, run mix deps.get
 
 ### iex : (IEx shell)
 - iex -S mix : To start a shell
