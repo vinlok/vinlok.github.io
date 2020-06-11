@@ -227,16 +227,16 @@ mix ecto.migrate
 - Its an Elixir struct that represents both incoming and outgoing request for app
 - It has keys like host, method, params came with request, route, path info, req_cookies, req_headers
 ```
-body_params: %{},
-  cookies: %{},
+body_params: % { },
+  cookies: % { },
   halted: false,
   host: "localhost",
   method: "GET",
   owner: #PID<0.616.0>,
-  params: %{},
+  params: % { },
   path_info: ["topics", "new"],
-  path_params: %{},
-  peer: {{127, 0, 0, 1}, 61841},
+  path_params: % { },
+  peer: {IP, 61841},
   port: 4000,
 
 ```
