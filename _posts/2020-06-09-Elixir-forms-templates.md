@@ -65,7 +65,7 @@ topic_path  POST  /topics      Discuss.TopicController :create
 
 - Instead of writing post /topics, we reference using topic patch and then we can keep changing the urls only at one place which is router.ex
 
-## Anchor tag (hyperlinking)
+## Anchor tag vs link to for hyperlinking
 - You can specify anchor tag as below:
 ```
  <a class="btn-floating btn-large waves-effect waves-light red " href="<%= topic_path(@conn, :new) %>">
@@ -83,6 +83,4 @@ topic_path  POST  /topics      Discuss.TopicController :create
 <%= link "Delete", to: topic_path(@conn, :delete, topic), method: :delete %>
 ```
 
-
-
-
+-

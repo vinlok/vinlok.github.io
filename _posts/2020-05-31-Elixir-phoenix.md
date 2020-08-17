@@ -196,7 +196,7 @@ Sent to Router module (Controlled by router.ex)
 
 
 ## Migrations
-- Migration file is how you manage databases in phoenix. Ecto is used for this.
+- Migration file is how you manage databases in phoenix. Essentially this is how you do DDL in Elixir using Ecto.
 - Creating the migration file:
 
 ```
