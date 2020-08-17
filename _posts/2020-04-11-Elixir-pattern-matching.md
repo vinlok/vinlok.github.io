@@ -10,10 +10,12 @@ Pattern matching is the core of Elixir. It is Elixir's replacement for variable 
 
 <!--more-->
 
+## Tuple
 - Lets assume you have tuple : {First_element, Second_element}. Elixir will do pattern matching as below using which you can access the first and second element. This is similar to Python:
 
 {f,s} = {First_element, Second_element}
 
+## List
 - pattern matching is employed when you use "=" sign. Example:
 ```
 normal_variable=["value1"]
@@ -31,7 +33,7 @@ iex(23)> [value] = ["value1","value2"]
 ** (MatchError) no match of right hand side value: ["value1", "value2"]
 ```
 
-- Pattern matching using Case statement
+## Pattern matching using Case statement
 ```
     case File.read(filename) do
       {:ok,binary} -> :erlang.binary_to_term(binary)
@@ -42,4 +44,17 @@ Here, the reponse of File.read is a tuple. Value at Index[0] of tuple is status(
 
 in the case statements, elixir will match the left hand side whenever the response is :ok and execute the binary_to_term statement.
 If the response is :error, then the reason will be stored in "reason" variable and passed on to right side.
+
+## Strings
+
+```
+iex(1)> a="first_val:second_val"
+"first_val:second_val"
+iex(2)> "first_val:" <> s="first_val:second_val"
+"first_val:second_val"
+iex(3)> s
+"second_val"
+```
+- here <> operator is used as concetenation.
+- To extract everything after :, we used the <> operator and the second_val was stored in s.
 

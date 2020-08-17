@@ -1,0 +1,53 @@
+
+@startuml
+
+
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 60
+
+' List client service components/participants here
+
+actor enduser
+
+participant router
+
+box "auth_controller" #LightBlue
+participant request_function
+participant callback_function
+end box
+
+box "github"
+participant github_com
+end box
+
+enduser ->  router : User goes to /auth/github  \n (clicks signin with github)
+router -> request_function
+note left : Send to auth controller \n request function
+
+group request_phase
+    request_function -> github_com
+    note left of request_function
+        request function will redirect user to:
+        https://github.com/login/oauth/authorize
+        And the following will be the query parameters
+        ?client_id=1bd379c2bcd4dsdfsdfsdfs
+        &redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fauth%2Fgithub%2Fcallback
+        &response_type=code (used for folloup requests)
+        &scope= (What information is sent back)
+    end note
+    github_com -> github_com 
+    note right: Authorize this user 
+end group
+
+group callback_phase
+    github_com -> router : redirect to /auth/github/callback
+    router -> callback_function
+    note left: Redirect user to callback_function
+
+end group
+
+
+
+
+@enduml

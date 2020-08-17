@@ -1,0 +1,43 @@
+
+@startuml
+
+
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 60
+
+' List client service components/participants here
+
+actor enduser
+
+box "Browser"
+participant browser
+participant app.js_client
+participant socket.js_client
+end box
+
+
+box "server" #LightBlue
+participant phoenix.server
+participant user_socket.ex
+participant comment_channel.ex
+participant app.js_server
+participant socket.js_server
+end box
+
+enduser -> browser : start connection to website
+browser -> phoenix.server : connects to server (running on cowboy)
+phoenix.server -> app.js_server : Renders the app.js
+phoenix.server -> socket.js_server : Renders the socket.js
+phoenix.server -> app.js_client : send the rendered file back to browser
+phoenix.server -> socket.js_client : send the rendered file back to browser
+socket.js_client -> user_socket.ex : join channel comments:1
+user_socket.ex -> comment_channel.ex 
+note left : user_socket.ex routes \n this to comment_channel.ex.\n It matches with "comments:*" channel \n routes to CommentChannel module \n here the join function is called
+comment_channel.ex -> comment_channel.ex : Forward this to join function.
+comment_channel.ex -> socket.js_client : Returned the map with :ok status and hey there message.
+socket.js_client -> browser : log message in the console
+
+
+
+@enduml
