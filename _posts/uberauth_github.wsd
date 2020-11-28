@@ -17,15 +17,19 @@ end box
 
 box "plugs"
 participant set_user
-
 end box
 
-box "auth_controller" #LightBlue
+box "auth_controller" #Lightgreen
 participant request_function
 participant callback_function
 participant signin_function
 participant insert_or_update_user_function
 end box
+
+box "check_controller" #LightBlue
+participant index_function
+end box
+
 
 box "github"
 participant github_com
@@ -40,59 +44,8 @@ database discuss_dev_users_table
 end box
 
 group Request_flow
-enduser -> scope 
-scope -> browser_pipeline
-browser_pipeline -> browser_pipeline : execute various steps \n in pipeline
-browser_pipeline -> set_user
-set_user -> cookies 
-note right : retrieve :user_id from session cookie \n every request sent has conn object which can be \n retrieved using get_session
-cookies -> set_user :user_id
-set_user -> discuss_dev_users_table : Retrieve user model from database
-set_user -> set_user 
-note right : use assign to add user model to conn
 
-end group
-
-
-group Authentication 
-
-    enduser ->  scope : User goes to /auth/github  \n (clicks signin with github)
-    scope -> request_function
-    note left : Send to auth controller \n request function
-
-    group request_phase
-        request_function -> github_com
-        note left of request_function
-            request function will redirect user to:
-            https://github.com/login/oauth/authorize
-            And the following will be the query parameters
-            ?client_id=1bd379c2bcd4dsdfsdfsdfs
-            &redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fauth%2Fgithub%2Fcallback
-            &response_type=code (used for folloup requests)
-            &scope= (What information is sent back)
-        end note
-        github_com -> github_com 
-        note right: Authorize this user 
-    end group
-
-    group callback_phase
-        github_com -> router : redirect to /auth/github/callback
-        router -> callback_function
-        note left: Redirect user to callback_function \n conn object now has assigns with ueberauth \n properties
-        callback_function -> callback_function 
-        note right : user_struct= %{token: conn.assigns.ueberauth_auth.credentials.token, \n email: conn.assigns.ueberauth_auth.info.email, \n provider: "github"}
-        callback_function -> callback_function
-        note right : changeset=User.changeset(%User{},user_struct)
-        callback_function -> signin_function : changeset
-        signin_function -> insert_or_update_user_function 
-        insert_or_update_user_function -> insert_or_update_user_function 
-        note right: if the users email address is not present \n add changeset to the database
-        insert_or_update_user_function -> signin_function
-        signin_function -> cookies
-        note left: add :user_id with value as users id to the cookies
-
-    end group
-
-end group
+enduser -> index_function
+index_function -> index_function : render index.html
 
 @enduml
