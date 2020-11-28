@@ -10,11 +10,11 @@ There are three ways to setup s3 cross account access
 
 # Resource and IAM policy
 
-<img src="images/aws/s3/cross_account_res_IAM.png" alt="S3 Cross Account Access Resource and IAM" />
+<img src="http://www.vinayaklokhande.com/images/aws/s3/cross_account_res_IAM.png" alt="S3 Cross Account Access Resource and IAM" />
 
 
 
 # Cross Account IAM
 
 
-# S3 ACL and IAM policy
+# S3 ACL and IAM policy.
