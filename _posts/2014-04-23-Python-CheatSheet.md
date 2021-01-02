@@ -161,19 +161,19 @@ In this blog, we will go through the basics of Python and some of the best pract
 
 ### Function:
 
-> - Defining a function:
+- Defining a function:
 
 <pre> def fib(n):  # This defines the function
 """Write what you want to say about the function. This will be referred when some one has to browse through the function code"""
 for i in range(n):
 print i </pre>
 
-> - Arguments passed to functions in Python are call by value. i.e., when the function is called from the program, the variables are actually copied to the function as new symbol table.
+- Arguments passed to functions in Python are call by value. i.e., when the function is called from the program, the variables are actually copied to the function as new symbol table.
 
 
-> - Values Returned by functions:
->> By default all function would return "None" value.
->> You can have a function return a specific value:
+- Values Returned by functions:
+> By default all function would return "None" value.
+> You can have a function return a specific value:
 
 <pre> def add(a, b):
 ...     c=a+b
@@ -181,4 +181,26 @@ print i </pre>
 ...
 >>> add(4,5) </pre>
 
-> - A method is a function that ‘belongs’ to an object and is named obj.methodname, where obj is some object (this may be an expression), and method name is the name of a method that is defined by the object’s type. Different types define different methods. Methods of different types may have the same name without causing ambiguity. 
+- A method is a function that ‘belongs’ to an object and is named obj.methodname, where obj is some object (this may be an expression), and method name is the name of a method that is defined by the object’s type. Different types define different methods. Methods of different types may have the same name without causing ambiguity. 
+
+### String formatting
+Three ways of doing string formating:
+
+1. % operator. 
+```
+a="something"
+print("printing %s" % (a))
+```
+
+2. .format
+
+```
+a="something"
+print("printing {}".format(a)
+```
+
+3. Python 3.6 onwards
+
+a="something"
+print(f"printing {a}"
+```

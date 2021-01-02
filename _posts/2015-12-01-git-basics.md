@@ -6,7 +6,6 @@ categories: ['Basics']
 excerpt_separator: <!--more-->
 ---
 
-OK. So you are an devops engineer and a religious devOps engineer should be practicing and using Git. Not to mention the enormous benefits provided by git, its without doubt is the best SCM available there.
 Git is different from the other SCM's available in market. This article aims at basic concepts of git with highlight on practical and useful commands.
 
 One of the most important job any SCM does is to give us ability to see what has changed in data/files over the period of time, and revert to any previous change when needed. Most of the SCM achieve this by maintaining a list of file based changes. Git, on the other hand does this differently and leverages snapshots.

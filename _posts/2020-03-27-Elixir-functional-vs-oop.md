@@ -16,7 +16,7 @@ This post talk about key differences between OOP vs Functional languages.
 - Functional programing works on modules. It is collections of methods or functions. There are no instance variables. There is no concept of instantiate a module. And example flow is something like this:
 
 1. Module will have a function which will produce a result/data.
-2. The result/data is fetched to other function which can perform come action on it.
+2. The result/data is fetched to other function which can perform some action on it.
 
 - In elixir, we never modify the original variable when it is passed to a function. Example:
 ```

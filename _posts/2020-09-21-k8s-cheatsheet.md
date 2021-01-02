@@ -96,4 +96,4 @@ myapp-replicaset-wxc4f   1/1     Running   0          40m
  ```
 
  ### Updating a given deployment
- - 
+ - To be added soon..
