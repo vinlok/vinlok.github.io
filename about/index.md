@@ -7,13 +7,5 @@ date: 2017-06-27
 
 ### About Me
 
-![Vinayak Lokhande](/images/vinlok.jpg "Vinayak Lokhande")
 
-
-Hey there! This is Vinayak Lokhande. I am a Linux engineer at heart who loves to solve problems. I work in San Francisco as Principal DevOps Engineer. 
-
-I am an DevOps and Site Reliability enthusiast who loves to automate things and working with systems at scale on the cloud. This blog is means by which I share my learnings.
-
-You can view my profile on LinkedIn.
-
-Thanks for reading my blog!
+Hey there! This is Vinayak Lokhande. I am a Software engineer with over 15 years of experience in developing and supporting highly scalable and reliable systems with a focus on infrastructure. Hand on experience in continuous integration, continuous deployment, and other process improvements (agile/lean/sre/DevOps). Experience in leading cross-functional and remote teams.
