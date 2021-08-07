@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Pandas"
+title: "Pandas-cheatsheet"
 date: 2017-3-25
-categories: ['Python']
+categories: ['Data Analytics']
 excerpt_separator: <!--more-->
 ---
 
