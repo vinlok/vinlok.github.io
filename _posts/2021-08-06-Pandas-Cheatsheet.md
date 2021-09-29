@@ -37,6 +37,9 @@ df.shape()
 - comluns names
 - number of non-null values
 
+## df.dtypes
+- to see the data types for the dataframe.
+
 # Operations on columns
 - To see all columns
 df.columns
@@ -152,6 +155,8 @@ df.sort_values("column_name", ascending=False, inPlace=True)
 
 - Filtering is done by using data mask. You can create a data mask in panda using the conditionals and then pass it to the dataframe.
 First way:
+
+
 ```
 age_mask = df.age > 45 # This will return all rows indexes with boolean values set to True or False depending on the condition
 df[age_mask] # This is where we apply the data mask and return all the ages > 45
@@ -179,6 +184,182 @@ df[
 
 ~ compliment
 
+
+# Grouping data
+
+g = df.groupby("exercise)
+
+- g will be an object created
+
+g.minutes.mean()
+
+or
+
+df.groupby("exercise").minutes.mean()
+
+- You can also do a count by a given column
+
+df.groupby("exercise")["day"].count()
+
+## Groupby multiple columns
+df.groupby(["location","exercise"]).minutes.mean()
+
+- This returns the grouped data by location for each type of exercise example bike and run. It will then perform mean() on it.
+
+- This will yield multi index with location as outer index and exercise as the inner index
+ 
+- Restting index:
+df.groupby(["location","exercise"]).minutes.mean().reset_index()
+
+# Aggregating data
+
+## agg function
+
+### On Columns
+df.col_name.agg()
+or
+df.col_name.agg(["mean", "std"])
+
+### On dataframes
+
+df.agg(["count","median"])
+
+### On groups
+
+df.groupby("col_name").agg()
+
+You can rename the columns by using dictionary as below:
+
+df.groupby("exercise").agg(
+    {
+        "minutes" : "mean",
+        "intensity": ["min", "max"]
+    }
+)
+
+
+# Using custom functions on Panda
+
+## .apply()
+
+- You can create a custom function and use .apply to process a given column on dataframe.
+
+```
+df.col_name.apply(functio_name)
+```
+
+This will apply the function on each element on the column and convert the result.
+
+## .map()
+- Operated only on panda series (Not on dataframe) elementwise
+- Does not perform aggregations
+- This can be used to do a find and replace on a given column using dictionary:
+
+location_map={
+    "run":"land",
+    "swim":"water"
+}
+
+df.exercise.map(location_map)
+
+This will take run and swim as keys and map it to land and water creating a new dataframe.
+
+## .applymap()
+- Works on dataframe elementwise.
+- Example convert case of dataframe to uppercase.
+
+
+# Merging data
+
+orders = pd.read_csv("orders.csv")
+
+customers = pd.read_csv(|"customers.csv")
+
+pd.merge(orders,customers, on="customer_id)
+
+This is equivalent of join sql statement
+
+
+# Datetime
+
+- By default pandas read datetime as string.
+- You can convert the columns from string to datetime type as below
+
+df["col_name"] = pd.to_datetime(df.col_name)
+
+- df.info will show changed col.
+
+- On datetime col, we can extract month, year, day, hh, mm, ss etc.
+```
+orders["buy_year"] = orders.buy_date.dt.year
+```
+
+- On add or remove using timedelta.
+
+
+# Data Cleaning 
+
+- Missing value in pada is represent as NaN: Not a Number
+- df.info shows null value count
+- .isna() method is also used which returns elements which are Null. It essentially returns a data mask with bolean True and False.
+- To remove all the null values from the dataframe you can do this:
+1. Find the null values: 
+ df.col_name.isna(): Here the values with null will be true and not null will be false.
+
+2. The do a ~ on this as we only want to select non null values
+
+~df.col_name.isna()
+
+3. Now apply the data mask on the dataframe:
+
+df[~df.col_name.isna()]
+
+## .dropna
+
+df.dropna(subset=["col_name"])
+
+## .fillna
+df.shipping.fillna(0)
+- Needs to be done with care
+## Impute using mean or median
+
+## Renaming columns
+- column names with space are not valid as they cannot be used as variables in python. Hence, they should be renamed or removed.
+df.rename(columns={
+    'price per pound':'price_lb',
+    'Shipping price':'shipping_price'
+},inplace=True)
+
+## Remove a char from col name
+
+df.columns = df.columns.str.replace(' ', '')
+
+## .astype() to Convert Column to a given data type
+
+df['col_name'] = df.col_name.astype('float')
+
+
+
+## Dropping columns: .drop()
+
+df.drop('col_name', axis=1)
+
+axis=1 for columns
+axis=0 for row
+
+## Convert all the values to capital for a given column:
+
+df.col_name = df.col_name.str.upper()
+
+## Replacing char in column values with something
+
+pop = df.population.str.replace(",",".")
+
+pop.astype('int')
+
+## Remove spaces from col values
+
+df.col_name.strip()
 
 
 
