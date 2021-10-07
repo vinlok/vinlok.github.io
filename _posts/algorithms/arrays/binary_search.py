@@ -22,6 +22,7 @@ Algo:
 
 
 a=[10,15,20,25,30,40,50]
+a=[1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 6]
 
 
 def binary_search(a,ele):
@@ -29,17 +30,17 @@ def binary_search(a,ele):
     high=len(a)-1
 
     while True:
-        mid=(high-low)//2
+        mid=low + (high-low)//2
         if low > high:
             break
 
         if ele==a[mid]:
             return(True,mid)
 
-        if ele > a[mid]:
+        if ele < a[mid]:
             high= mid -1
         else:
             low=mid + 1
 
     return(False)
-print(binary_search(a,26))
+print(binary_search(a,5))
