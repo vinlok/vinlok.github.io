@@ -11,8 +11,6 @@ Sub domain delegation?
 What is delegation?
 What is a namespace?
 
-zone lives in a vpc?
-
 How vpc to zone and all works in Route53?
 
 ASN and BGP?

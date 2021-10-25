@@ -7,7 +7,7 @@ excerpt_separator: <!--more-->
 
 ---
 
-Every system administrator in his lifetime encounters this error: "Too Many open files". This blog is an attempt to explain limit for number of files opened and number of processes on a Linux system. To summarize, this error tells that a given process has hit the limit on max number of opened files by it.
+Every system administrator in his lifetime encounters this error: "Too Many open files". To summarize, this error tells that a given process has hit the limit on max number of opened files by it.
 
 With the help of python code, we will see how to simulate this error and also see various config files associated with setting this parameter.
 <!--more-->
@@ -46,7 +46,7 @@ file locks                      (-x) unlimited
 
 	Note that this will change the open files limit only for the current session.
 
-- The max you can set this limit is governed by the values you have configured in /etc/security/limit.conf and /etc/security/limits.d/<various-files>.
+- The max you can set this limit is configured in /etc/security/limit.conf and /etc/security/limits.d/<various-files>.
 
 - Below excerpt from an Red Hat KB explains the order of precedence for these files:
 
@@ -123,7 +123,7 @@ No of files opened: 1797
 
 
 ### Scenario 2:
-- /etc/security/limits.conf number of files limit set to: * soft nofile 1800
+- /etc/security/limits.conf number of files limit set to: * soft nofile 1600
 - There is a file with name 90-nofile.conf created in /etc/security/limit.d/ with:  *          soft    nofile    1600
 - Ulimit will be set to 1800, which can be checked with ulimit -n command:
 <pre>
@@ -132,7 +132,14 @@ No of files opened: 1797
 </pre>>
 - Running the above python code will show that it will error at 1600
 
+# Notes
 
+1. Ulimit is shell builtin function. 
+# Syscalls used to setup ulimit
+
+- getrlimit()
+- setrlimit()
+- prlimit()
 
 
 
