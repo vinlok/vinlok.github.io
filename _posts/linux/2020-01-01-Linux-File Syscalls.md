@@ -17,10 +17,6 @@ excerpt_separator: <!--more-->
 - Threads
 - I/O Devices
 
-# Steps involved in making a system call
-
-Diagram here < System call>
-
 
 # Library Functions
 
@@ -33,16 +29,12 @@ Diagram here < System call>
     - statically linked: Copies the actual function code into .text sections
     - Dynamically linked: name of library or Reference is added to code. These are in ELF format
 
-    - ELF format looks as below:
-
-        ELF diagram here
-
 
 - Compilation steps:
     hello.c  ---> hello.i ---> hello.s(assembly) ----> hello.o(relocatable) ----> hello.out(executable program in ELF format)
 
 
-- Errors from system calls are handled by the library functions. If the system call returns an error, the ERRORNO variable is set. using perror() and stderror() function these value can be retrieved and error can be printed.
+- Errors from system calls are handled by the library functions. If the system call returns an error, the ERRORNO variable is set by systemcall. using perror() and stderror() function these value can be retrieved and error can be printed.
 
 Usually the function would return -1 and then we can use ERRORNO to retrieve the actual error.
 
@@ -71,26 +63,27 @@ main() {
 
 1. open(filename,flags,mode)
     - flags represent the mode of file to be open: 
+    ```
     O_RDONLY
     O_WRONLY _> 
     O_CREAT -> If the name does not exist, create the file. If present do noting unless O_EXCL isused
     O_EXCL
     O_SYNC --> Do not buffer at kernel level
     O_NOBLOCK -->  Do not wait if no data is avail (example disk is waiting to read)
-
+    ```
     open("somefile",O_CREAT|O_WRONLY|O_TRUNCATE)
     means create an new file in wronly mode and truncate it to size 0.
     Thisis equivalent to creat() system call.
 
     - mode: Permission to be placed on the file: rwxr-wr--
 
-    - On success returns no-negative integer which is the smallest file descriptor avialble for the given process: usually it is 0 to 1024 but can be set.
+    - On success returns no-negative integer which is the smallest file descriptor available for the given process: usually it is 0 to 1024 but can be set.
 
     - On error returns -1 and set errorno variable. error can be retrieved using perror()
 
 
 2. num_of_bytes_read_into_buff=read(fd,buffer,count_of_bytes)
-    -fd is the file descriptor to read from, buffer is the buffer to read into, count_of_bytes is the max bytes to read.
+    - fd is the file descriptor to read from, buffer is the buffer to read into, count_of_bytes is the max bytes to read.
     - returns -1 on error and sets errorno. On success returns the number of bytes read
     - returns 0 if EOF has been reached.
     - Read is always in blocking mode. That is if the file is not available to read, this call will wait until it becomes available.
@@ -169,7 +162,18 @@ main() {
     - System call reads or writes from vector of buffers
     - readv() and writev()
 
+    ```
+    char buff1="someothing"
+    char buff2="vin"
+
+
+    iovec="buff1,buff2"
+
+    writev(fd,iovec,size)
+    ```
+
 2. mmap() or memory mapped I/O / files:
+    - mmaping is file by mapping disk block to a page in memory.
     - mmap take "len", "offset" and "fd" as argument. The data of size "len" is then mapped in to memory.
     - mmap() system call operates on pages. If then "len" is not multiples of page size then, the remaining mapped space is filled with zero's
     ![](2021-10-22-18-10-19.png)
@@ -188,6 +192,18 @@ main() {
     msync(dst)
 
     ```
+
+    Anonymous mapping in memory:
+
+    ```
+    p = mmap (NULL,                   /* do not care where */
+          getpagesize (),         /* map one page */
+          PROT_READ | PROT_WRITE, /* map read/write */
+          MAP_PRIVATE,            /* private mapping */
+          fd,                     /* map /dev/zero */
+          0);                
+    ```
+    - The data written to the memory is not immediately written to the disk. The OS takes care of moving it at a later stage.
 3. mprotect() system call can be used to change the access mode of a given block of memory mapped by mmap() system call.
 
 4. msync() call can be used for syncing back content of buffer to a mapped file.
@@ -195,72 +211,46 @@ main() {
 5. readahed() system call provides mechanism to read n bytes of files into pagecache ahead of time.
 
 
-# I/O scheduler
+# Stat family system calls
 
-- The Logical Blocks Address (or logical blocks) map to CHS address.
-- Disk seeks are 25 million times of one CPU cycle.
-- To avoid disk head moving hap hazardily I/O schedulers perform two mechanisms:
+stat(file_path, stat_struct)
+fstat(file_descriptor,stat_struct)
+lstat(file_path, start_struct)
 
-1. Merging: if there is a request for block number 4 and then there is another request for block 5-8, these requests are merged together into 1 as 4-8 and then submitted.
+stat_struct is returned by the stat() syscall as below and is pulled from files inode table entry: 
+This is same as that of ls -l fields 
+```
+struct stat {
+        dev_t st_dev;         /* ID of device containing file */
+        ino_t st_ino;         /* inode number */
+        mode_t st_mode;       /* permissions */
+        nlink_t st_nlink;     /* number of hard links */
+        uid_t st_uid;         /* user ID of owner */
+        gid_t st_gid;         /* group ID of owner */
+        dev_t st_rdev;        /* device ID (if special file) */
+        off_t st_size;        /* total size in bytes */
+        blksize_t st_blksize; /* blocksize for filesystem I/O */
+        blkcnt_t st_blocks;   /* number of blocks allocated */
+        time_t st_atime;      /* last access time */
+        time_t st_mtime;      /* last modification time */
+        time_t st_ctime;      /* last status change time */
+};
+```
+Note: Linux does not store creation time and ctime here is time when the meta data of the file was changed
 
-2. Sorting: Requests to blocks 23, 9 , 1 and 10 are sorted as 1,9,10,23. If a new request comes for block 5 it is inserted at correct place and sent. This way head moves in linear fashion.
+# System calls for files
 
-## *Read latency* 
-- When data is not present in page cache, it has to be read from the disk and then cache updated and then data given back to process. This blocks the process till the time data is fetched from disk which is lengthy operation and called as disk latency.
+- chown(),lchown, fchown()
+- getxattr(),lgetxattr(),fgetxattr() or list -> listxattr(),llist,flist
+- getcwd()
+- chdir(), fchdir()
+- mkdir(), rmdir()
+- link() --> hardlinks
+- symlink()
 
-## *writes-starving-reads*
+There is NO SYSTEM call for copying. Refer to the mmap() code for copying file. Thats how cp does it.
 
-- Read operations are sequential. If data is read from file in chuncks, before reading the next chunk, the previous chunk needs to be done. Thus, we need to do Disk I/O 
-- Writes on other hands do not depend on disk I/O as the write are written at some later stage and these requests are streamed. Thus writes can consume all of kernel time starving reads.
+- moving is done via rename()
+- ioctl() : --> out of band connection. Eject CDROM ioctl(fd,CDROMEJECT,0)
 
-- As the requests to blocks are sorted by block numbers and served, it is possible that a given block is starved and served after long time. To avoid this, there are different schedulers:
-
-1. Linus elevator scheduler: 
- - Sort blocks by number in sorted_queue = 1(r),10(r),11(w),15(r),30(w)
- - service one at the head of sorted_queue 30(w)
- - If any item is older than exptime of sorted_queue service it first.
-
-    Too simple heuristic and was decom in 2.4
-
-2. Deadline I/O scheduler: 
-- Maintains 
-    - sorted_queue by block number = 1(r),10(r),11(w),15(r),30(w)
-    - read_fifo by submission times = 1(r),15(r),10(r)
-    - write_fifo by sub times = 30(w),11(w)
-- Serves from head of sorte_queue
-- If oldest item expires, it serves from head of respective queue. Example if 1 has expired, head from read_fifo queue which is 10 will be served.
-
-3. Anticipatory I/O scheduler
-- Deadline scheduler has lot of switching between read and write FIFO queue.
-- Generally reads are more than writes. 
-- Serves requests as above algo, however, before moving to next requests, it sits ideal in anticipation that request near to a given block will be submitted
-
-4. CFQ:
-- Each process gets its own queue and each queue is assigned a time slice.
-- RR mechanism between queues are employed.
-- If there are no requests in a given process queue, CFQ sits in that queue for 10 ms in anticipation that something will come. If not, move to next.
-
-5. Noop: 
-- Does only merging no sorting
-- Used generally by SSD.
-
-Optimizg for I/O performance:
-- Peform block size aligned I/O
-- User user space buffering (printf, fwrite stdio buffering)
-- Schedule I/O in user space:
-    - Sort by file path. If there are multiple requests made to files, generally files in the same directory will be closer. Hence, make the requests by sorting by file path
-
-    - Sort by inode. inode of file can be figured out by inode.
-    - soft by physical block:
-        ```
-        - get the blocks of file using stat()
-        - get the physical blocks using ioctl()
-        ```
-
-    
-
-
-# 
-
-- 
-- 
+- fd = inotify() and and inotirgy_add_watch(fd, path)

@@ -45,18 +45,24 @@ The classes of processes can fall into two types:
     2. Deadline: Uses SCHED_DEADLINE policy for period realtime tasks.
     3. realtime: Uses SCHED_FIFO and SCHED_RR. Used for POSIX realtime tasks such as IRQ Threads with priority values from 0-99
     4. CFS: SCHED_NORMAL, SCHED_BATCH, SCHED_ISO, SCHED_IDLEPRO. Used for userspace processes. such as bash. Priority values used: 
-                100-139 
+                100-139 which map to 
                 nice values of -20 to +19
-                this maps to 0-39
+                this maps to 100-139
 
                 priority = 20 + nice
 
                 higher the priority number lowe is priority given by processor.
 
+                By increasing the nice value, you are decreasing your priority and being “nice” to the rest of the system
+
+
     5. idle: Lower priority. No policy. when nothing to run.
 
+![](2021-10-27-15-58-40.png)
 
-    - CFS uses ideal fair scheduling: The processor time is divided equally amongst the running processes. Thus if you have n runnable processes, then each will get 1/n of processor time.
+    - CFS uses ideal fair scheduling: The processor time is divided equally amongst the running processes. Thus if you have n runnable processes, then each will get 1/n of processor time. This is with nice value of 0 or both processes having same nice value.
+
+    - If number of processes in runnable queue goes really high (n goes really high), then 1/n might be too small. In this case, the cost of context switching might be more. Thus, there is a min-granularity time slot usually of 1 ms. This is the min timeslice a process would get.
 
     - vruntime: Amount of time a process has run and served. This acts as the index for the tree or rather node.val in red black tree implementation of CFS.
 
@@ -69,7 +75,7 @@ The classes of processes can fall into two types:
         - the processes vruntime += exec_duration * (weightage based on the nice value)
             Thus, higher the nice, higher the weightage and higher the vruntime, and the task will be on the right side of the tree.
         - choose the process with min_vruntime.
-        - calculate its Dynamic TimeSlice.
+        - calculate its Dynamic TimeSlice using the 1/n method.
         - repeat.
 
 
