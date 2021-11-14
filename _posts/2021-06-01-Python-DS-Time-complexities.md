@@ -84,7 +84,13 @@ insert, search/lookup,delete: O (n)
 
 
 
+# Strings:
+1. Strings are immutable. To change a string:
+    1. convert to list
+    2. make changes
+    3. convert back to list.
 
+2. 
 
 
 # References:

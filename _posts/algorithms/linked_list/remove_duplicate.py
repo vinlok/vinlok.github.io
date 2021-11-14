@@ -23,19 +23,9 @@ def rev_linked_list(head):
     head->7->14->21->28->None
     None                 head
 
-    maintain three pointers
-
-    p=None
-    c=head
-    n=c.next
-
-
-
     set cur_node to head
 
     while cur_node !=  None:
-    p=c
-    c=c.next
 
     t = cur_node.next
     t.prev_node=cur_node
@@ -56,9 +46,49 @@ def rev_linked_list(head):
         cur_node = t
 
     return(cur_node)
+
+
+def remove_duplicate_node(head):
+    '''
+    Algo:
+
+    walk through the LL
+    For each node, see if it is present in a hash table or not.
+    If present, then delete it
+    else, add to hash
+
+    Deletion logic:
+
+    keep prev_node
+    keep current_node
+
+    point prev_node.next to current_node.next
+    set current_node to current_node.next
+
+
+    :param head:
+    :return:
+    '''
+
+    p=None
+    c=head
+
+    hash={}
+    while c != None:
+        # If the value is present in hash, then skip the node.
+        if hash.get(c.value):
+            p.next = c.next
+        else:
+            hash[c.value]=True
+            p=c
+        c = c.next
+
+    return head
+
+
 a = Node(7)
 b = Node(14)
-c= Node(21)
+c= Node(7)
 d = Node(28)
 
 head=a
@@ -69,5 +99,8 @@ c.next=d
 
 print_linked_list(head)
 
-r=rev_linked_list(head)
+
+r=remove_duplicate_node(head)
+# print_linked_list(r)
+
 print_linked_list(r)

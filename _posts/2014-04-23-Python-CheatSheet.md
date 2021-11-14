@@ -200,7 +200,39 @@ print("printing {}".format(a)
 ```
 
 3. Python 3.6 onwards
-
+```
 a="something"
 print(f"printing {a}"
+
+```
+
+### Things to remember
+
+1. You cannot access the last element like this
+```bash
+>>> s=[]
+>>> s[-1]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+```
+
+2. Empty strings/arrays are evaluated as False:
+```bash
+>>> s=[]
+>>> if s:
+...  print("not empty")
+...
+>>> s=[1]
+>>> if s:
+...  print("not empty")
+...
+not empty
+
+```
+
+3. Creating an empty list with n elements:
+
+```bash
+res = [0] * n
 ```
