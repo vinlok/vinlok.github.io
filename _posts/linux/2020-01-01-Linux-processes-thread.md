@@ -10,12 +10,12 @@ excerpt_separator: <!--more-->
 
 - Virtual memory is associated with process but not threads.
 - Virtualized processor is available to threads and not to processes.
-
+- On Linux threads and processes are called as task. 
 
 # Why Multithreading?   
 
 - Style of programing or programming preference.
-- parallelism
+- parallelism: Allows a single process to run on multiple processor simultenously.
 - Task delegation: Example: part of program which waits for use input can be delegated to a thread whereas other part can continue executing.
 - Low context switching between threads as VMM is same.
 - Forking processes are not expensive due to COW but threads are cheaper!
@@ -259,3 +259,7 @@ int main (void)
     - sub
     - inc
 - Mutex_loc() and unlock()
+
+
+# Idle Thread
+When there is no work for kernel to do, the kernel schedules a placeholder thread that waits for work called idel threads.

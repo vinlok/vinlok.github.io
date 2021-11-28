@@ -70,7 +70,7 @@ excerpt_separator: <!--more-->
 
 # Memory Layout of a process
 - 
-- The process address space is divides in memory areas
+- The process address space is divided in memory areas called as segments.
 
 Consider the following C code:
 
@@ -119,7 +119,9 @@ The above code is compiled into ELF format described above and the memory map lo
 
 
 - The userstack grows and shrinks and functions are called an returned.
-- The kerner-stack is per-process memory region maintained by kernel. This is used during the syscal execution. When library function executes trap, the kernel copies the registers(rdi...) to the kernel stack region of each process. 
+- The kerner-stack is per-process memory region maintained by kernel. This is used during the syscal execution. When library function executes trap, the kernel copies the registers(rdi...) to the kernel stack region of each process.
+
+- Stacks are LIFO
 
 ## Heap
 

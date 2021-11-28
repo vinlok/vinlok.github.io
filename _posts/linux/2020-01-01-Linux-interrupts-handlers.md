@@ -6,7 +6,23 @@ categories: ['Linux']
 excerpt_separator: <!--more-->
 ---
 
-# How interrupts are handled
+Interrupts are signals to the processors that some event has occured that needs to be processed. Upon being interrupted, CPU has to let got its current task and handle the interrupt.
+
+# Types of interrupts
+1. Synchronus interrupts often caused by Softwares
+2. Asynchronus interrupts
+
+![](2021-11-25-13-22-14.png)
+
+
+
+# Async Interrupts- How hardware interrupts are handled
+Examples of hardware interrupts include:
+1. Disk devices signaling the completion of disk I/O
+2. Hardware indicating a failure condition
+3. Network interfaces signaling the arrival of a packet
+4. Input devices: keyboard and mouse input
+
 Interrupts are async which can happen any time by any hardware. Hardware interrupts are electrical signals which are sent to the Interrupt controller also called as I/O APIC. 
 
 I/O Apic then multiplexes this to a specific CPU. Each CPU has local APIC. Thus, I/O APIC routes it to a single CPU. CPU then notifies the kernel of Interrupt. OS then handles the interrupt.
@@ -23,6 +39,16 @@ Interrupt handler is the function in kernel code that executes when an interrupt
 
 
 ![](2021-10-25-12-05-48.png)
+
+
+## Example of Asyn interrupts
+
+![](2021-11-25-13-25-51.png)
+
+# Synchronous interrupts: Software
+
+- Generally caused by softwares. Example, when a application makes a system call, "TRAP" interrupt is made using the "int 0x80" instruction.
+- Faluts: Such as page faults.
 
 # Top halves and bottom halves
 

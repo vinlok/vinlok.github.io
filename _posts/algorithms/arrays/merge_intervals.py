@@ -1,22 +1,30 @@
-def merge_intervals(intervals):
+class Solution(object):
+    def merge(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        """
 
-    [s,e] = intervals[0]
-    r=[]
-    for i in range(1,len(intervals)):
+        intervals.sort(key=lambda x: x[0])
+        stack = []
+        stack.append(intervals[0])
+        i = 1
+        while i < len(intervals):
+            [s1, e1] = stack.pop()
+            [s2, e2] = intervals[i]
+            if s2 <= e1 and e2 >= e1:
+                stack.append([s1, e2])
+            elif s2 < e1 and e2 < e1:
+                stack.append([s1, e1])
+            elif s1 == s2 and e1 == e2:
+                stack.append([s1, e1])
+            else:
+                stack.append([s1, e1])
+                stack.append([s2, e2])
 
-        [n_s,n_e]=intervals[i]
+            i += 1
 
-        if n_s <= e:
-            if n_e > e:
-                e = n_e
-
-            # r.append([s,e])
-        elif n_s > e:
-            r.append([s,e])
-            s=n_s
-            e=n_e
-    r.append([s,e])
-    print(r)
+        return (stack)
 
 
 

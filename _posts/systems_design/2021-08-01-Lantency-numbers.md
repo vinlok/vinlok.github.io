@@ -36,7 +36,17 @@ excerpt_separator: <!--more-->
 1 GB             = 10 s
 
 
+# 9's availability
 
+99 --> 90 hours per year
+99.9 --> 9 hours per year
+99.99 --> 1 hour per year
+
+# Million and billions
+![](2021-11-16-16-52-59.png)
+
+- 1 million = 6 zeros
+- 1 billion = 9 zeros
 
 # References
 

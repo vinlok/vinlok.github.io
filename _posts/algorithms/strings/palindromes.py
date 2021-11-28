@@ -60,8 +60,61 @@ def find_all_palindromes(string):
     return palindromes
 
 
+def palindrome_with_one_skip(string):
+
+    '''
+
+    if the chars are not matching
+    then if you have already skipped return
+
+    l +=1
+    if char not matching
+        l -
+        r -
+        if char still not matching
+            return false
+        else
+            skip +
+    else
+        skip +
+
+    :param string:
+    :return:
+    '''
+
+    r=len(string)-1
+    l=0
+    skip=0
+    while l<r:
+
+        if string[l]!=string[r]:
+            if skip > 0:
+                return False
+
+            l += 1
+
+            if string[l]!=string[r]:
+                l-=1
+                r-=1
+                if string[l] != string[r]:
+                    return False
+                else:
+                    skip +=1
+
+            else:
+                skip +=1
+
+        l+=1
+        r-=1
+
+    return True
+
+
+
 
 string="aabbbaa"
 p=find_all_palindromes(string)
 
 print(p)
+
+print(palindrome_with_one_skip("racecar"))

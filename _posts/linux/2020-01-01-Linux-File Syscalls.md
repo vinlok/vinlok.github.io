@@ -56,7 +56,12 @@ main() {
 
 ```
 
+- Invoking a system call does a "mode switch" and user process is switched to kernel process.
 
+- Systems calls can either:
+    1. mode switch
+    2. Context switch
+    
 # File I/O system calls
 
 ## basic I/O (Buffered at Kernel space level):
@@ -90,9 +95,19 @@ main() {
     - -1 with EINTR is for blocking read when interrupt signal is received
     - -1 with EAGAIN is for non-blocking read when there is no data to read.
 
-## Readahead:
+## Caching
+
+![](2021-11-25-16-50-22.png)
+
+- In order to improve read performance, FS uses cache.
+- In order to improve write performance, FS uses buffer which are also in the page cache.
+
+
+## Readahead or prefetch:
 
 ![](2021-10-21-17-55-02.png)
+
+![](2021-11-25-16-52-55.png)
 
 3. n_of_bytes_written=write(fd,buffer,count_of_bytes)
 
@@ -104,7 +119,8 @@ main() {
     ![](2021-10-21-17-27-22.png)
 
     ### Writeback
-    - Kernel has flusher threads which flush the contents of dirty buffers to disk periodically.
+    - 
+    - Kernel has flusher threads which flush the contents of dirty buffers to disk periodically. 
     - fsync() also forces kernel buffer to be flushed.
 
 4. close(fd)

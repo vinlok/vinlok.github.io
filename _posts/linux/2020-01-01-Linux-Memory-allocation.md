@@ -1,3 +1,33 @@
+# Linux Memory Management
+
+# Terms
+- Main Memory
+- Virtual Memory
+- Resident Memory: Part of program/memory that resides in main memory
+- Heap or Anonymous memory
+- Page: A unit of memory, as used by the OS and CPUs. Historically it is
+either 4 or 8 Kbytes. Modern processors have multiple page size support
+for larger sizes.
+- Page fault: An invalid memory access. These are normal occurrences
+when using on-demand virtual memory.
+
+# Paging
+Paging is the movement of pages in (page-ins) and out (page-out) of the main memory.
+
+Linux used paging with virtual memory.
+
+Two types:
+
+1. File system paging (page cache)
+    - Good
+2. Anonymous Paging (swapping)
+    - Bad as it hurts system performance.
+
+3. 
+
+
+
+
 
 # Memory components
 - Frames and pages: Logical memory in Linux is divided in to pages. In linux : getconf PAGESIZE
@@ -31,6 +61,9 @@ Working:
 
 
 ![](2021-10-27-11-03-08.png)
+
+![](2021-11-25-15-15-14.png)
+
 
 ## Thrashing:
     - For a low priority process, most of the pages would be swapped out to disk. 
@@ -87,7 +120,7 @@ A process lifecyle:
 8. Now kernel immediately does an execve.
 9. This is where a new mm is create and pointed for this is stored in the task_struct.
 10. From the ELF header, using the PT_LOAD, the programs, data, text and bss sections are loaded in multiples of page size. For BSS zero filled pages are stored.
-11. This is where the page table of the process is updated. In the page table, a given page is referenced against the page frame. Free frames are taken from the frame table.
+11. This is where the page table of the process is updated. In the page table, a given page is referenced against the page frame. Free page are allocated from the free list from the frame table.
 12. Now the ELF section corresponding to the dynamic library on the _start of process is loaded into pages.
 13. Finally instruction at the _start is executed.
 
@@ -103,7 +136,10 @@ A process lifecyle:
 ![](2021-10-27-16-19-28.png)
 
 - The primary physical memory manager of linux is page allocator which uses buddy system.
-- Each of the zones has its own page allocator and keeps track of physical frames. Here, as requested, the pages are either group to form buddy heap or split to smallest page_size.
+- Each of the zones has its own page allocator and keeps track of physical frames. Here, as requested, the pages are either group to form buddy heap or split to smallest page_size. The term buddy
+refers to finding neighboring pages of free memory so that
+they can be allocated together.
+
 - Example, when device driver request for memory, it is from zome_DMA.
 
 ## MMU
@@ -138,6 +174,9 @@ A process lifecyle:
     - Lazy allocation:
         - Kernel does not allocate physical memory immediately.
         - It allocates virtual memory but does not allocate physical memory until the process actually touches it.
+
+
+
 
 # Kernel Memory allocation
 
@@ -193,22 +232,36 @@ Benefits:
         - This is general purpose
 
 ![](2021-10-27-16-39-43.png)
-# Swapping
-- When you are low on memory:
-    - Kernel tries to find free frame.
-    - If no free frame, then find a Victim Frame.
-        - Here LRU/FIFO algo can be used.
-        - if the selected frame is dirty, we know that its content from disk has changed.
-        - Then we move it to disk by copying it and update the TLB and pagetable
-        - Else, if the frame/page is not dirty then, it is not modified since it was read from disk. Hence just replace it with new page/data from disk.
-        - Again update the pagetable and tlb. In page table we update the valid/invalid field.
-
-- When the process tries to access the page (which is mapped to frame), page fault occurs and does this:
-    - Put process in sleep
-    - copy frame from disk to RAM
-    - fix the page table to point to correct 
-    - wake the process back up.
 
 
 
 ![](2021-10-15-17-11-39.png)
+
+
+# Freeing memory:
+
+![](2021-11-25-15-28-10.png)
+
+- OOM happens when there is no swap device allocated or if the allocated SWAP runs out of space.
+
+## Page Scanning
+Freeing memory by paging is managed by the kernel page-out
+daemon.
+
+![](2021-11-25-15-42-25.png)
+
+# Buffer Cache vs Page Cache
+
+Buffers are associated with a specific block device, and cover caching of filesystem metadata as well as tracking in-flight pages. The cache only contains parked file data. That is, the buffers remember what's in directories, what file permissions are, and keep track of what memory is being written from or read to for a particular block device. The cache only contains the contents of the files themselves.
+
+
+# Troubleshooting Memory issues
+
+## List of Tools
+1. Check if page scanning is happining: sar -B
+2. vmstat -Sm -1
+
+3. top
+    shift + f to select sorting by a given param
+
+4. 

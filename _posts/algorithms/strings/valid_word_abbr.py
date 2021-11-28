@@ -12,25 +12,41 @@ def validWordAbbreviation(word, abbr):
             position+=1
         elseif number
             position+=num
+
+
+
+            "appleen"
+            "a2l2n"
     """
 
-    location = 0
 
-    for i in range(len(abbr)):
+    location = 0
+    i= 0
+    while i < len(abbr):
 
         if abbr[i].isalpha():  # try converting to int
+            print(abbr[i],location,word[location])
             if abbr[i] != word[location]:
                 return False
-            location += 1
+            i += 1
+            location +=1
         else:
-            temp = 0
-            while temp < len(abbr):
+            temp = ""
+            j = i
+            while i < len(abbr):
+                print(abbr[i])
                 if abbr[i].isdigit():
-                    temp = 10 * temp + int(abbr[i])
+                    temp = temp+abbr[j]
                     i += 1
                 else:
-                    location += temp
+                    print(temp)
+                    location+=int(temp)
+                    print(location)
                     break
 
+
     return True
+
+
+print(validWordAbbreviation("appleen","a2l2n"))
 

@@ -73,3 +73,49 @@ by IANA and are privilege
     - retranmission
     - sequencing
     - congestion control
+
+# AF_INET sockets
+
+On sever side:
+
+1. create socket:
+```
+sockfd = socket(AF_INET, SOCK_STREAM, 0);
+```
+
+2. Bind socket to port and IP:
+```
+bind(sockfd,IPaddre and port)
+
+```
+
+3. Now start listen (create a passive socket)
+```
+listen(sodketfd,max_connections)
+```
+
+4. Now go in a while 1 loop
+```
+while 1
+    cs=accept(ss,,)
+```
+- Here for each accept there is an fd created. Hence, each connection results in a file descriptor used.
+
+
+
+
+On client side:
+
+1. Create socket :
+```
+sockfd = socket(AF_INET, SOCK_STREAM, 0);
+```
+
+2. Connect to remote socket using the local socket:
+
+```
+connect(sockfd,remote_ip,remote_port)
+```
+
+
+
