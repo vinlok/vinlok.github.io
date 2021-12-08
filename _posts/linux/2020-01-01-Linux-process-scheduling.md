@@ -13,6 +13,9 @@ excerpt_separator: <!--more-->
 
 - Linux employs pre-emptive scheduling where the scheduler decides when to stop and run as process.
 
+- Linux schedules threads rather than process and a process with no thread is considered as single threaded.
+- 
+
 # Classes of Process:
 1. Interactive Processes:These spend most of time interacting with user thus waiting for user I/O. shells, text editor etc.
 2. Batch Processes: These execute in background. Compilers, database search engines, scientific
@@ -35,7 +38,7 @@ The classes of processes can fall into two types:
 
 # Traditional Unix Sheduler
 
-- has 32 run queues which work in round robin with 
+- has 32 run queues which work in round robin. It has a concept of fixed timeslices and the process would preempt if the fixed timeslice was over.
 
 
 # CFS
@@ -60,9 +63,12 @@ The classes of processes can fall into two types:
 
 ![](2021-10-27-15-58-40.png)
 
-    - CFS uses ideal fair scheduling: The processor time is divided equally amongst the running processes. Thus if you have n runnable processes, then each will get 1/n of processor time. This is with nice value of 0 or both processes having same nice value.
+    - CFS uses ideal fair scheduling: The processor time is divided equally amongst the running processes. Thus if you have n runnable processes, then each will get 1/n of processor time. This is with nice value of 0 or both processes having same nice value. 1/n is a timeslice but not a fixed one.
 
-    - If number of processes in runnable queue goes really high (n goes really high), then 1/n might be too small. In this case, the cost of context switching might be more. Thus, there is a min-granularity time slot usually of 1 ms. This is the min timeslice a process would get.
+    - Target-latency: CFS scheduler has target latency (min amount of time to execute on processor cycle) usually approximated to 20 ms.
+
+    - minimum-granularity: If number of processes in runnable queue goes really high (n goes really high), then 1/n might be too small. In this case, the cost of context switching might be more. Thus, there is a min-granularity time slot usually of 4 ms. This is the min timeslice a process would get.
+
 
     - vruntime: Amount of time a process has run and served. This acts as the index for the tree or rather node.val in red black tree implementation of CFS.
 
@@ -81,7 +87,17 @@ The classes of processes can fall into two types:
 
     When does contect switch happens?:
         - when there is a task with higher priority that other.
-        - When there is a task with low vruntime than current
+        - When there is a task with low vruntime than current.
+
+    How often the CFS schedule re-schedules:
+    Target Latency (t_l) = 20 ms
+    min-gra(m_g)=4ms
+    Thus, the scheduling will have every 20ms as runnable_task < t_l/m_g
+    runnable tasks = 5
+
+    else, it will happen every m_g*number of runnable tasks
+
+    This is where the CPU is considered to be loaded.
 
             
     - CPU Bound and I/O bound process handling

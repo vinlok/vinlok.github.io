@@ -240,15 +240,27 @@ int main (void)
         return 0;
 }
 ```
-- In Linux threads are implemented using clone() system call with special flags
+- In Linux threads are implemented using clone() system call with special flags: CLONE_VM etc. Details here: https://eli.thegreenplace.net/2018/launching-linux-threads-and-processes-with-clone/
+
+```
+const int clone_flags = (CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SYSVSEM
+                       | CLONE_SIGHAND | CLONE_THREAD
+                       | CLONE_SETTLS | CLONE_PARENT_SETTID
+                       | CLONE_CHILD_CLEARTID
+                       | 0);
+```
+
+- As noted above, forking process has to duplicate everything (copy PPFD, text sections, PageTable (mm_struct)). Even though COW is used, it is still costly
+
 
 # Kernel Threads
 
 - These threads exists only in kernel space. Thus they do not have any mm pointers in there task_struct.
-- tasks such as flush, ksoftirqd are handled by kernel threads.
+- They only operate in kernel space and do not context switch to user space.
+- tasks such as pdflush, ksoftirqd are handled by kernel threads.
 - Kernel handles the scheduling of these threads
 - The user space level threads scheduling is handled by the user space library.
-
+- These are also created using the clone() system call with a special flag for CLONE_KERNEL.
 
 # Linux synchronization
 - Linux kernel used to be non-premtive. That is task running in kernel mode cannot be interrupted. That changed in 2.6.

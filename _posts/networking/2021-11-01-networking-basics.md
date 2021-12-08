@@ -122,3 +122,10 @@ tcp_tw_recycle is another way to reuse TIME_WAIT
 sessions, although not as safe as tcp_tw_reuse.
 
 
+# ICMP
+
+![](2021-12-01-17-46-46.png)
+
+- Used for error message
+- and for sharing messages.
+

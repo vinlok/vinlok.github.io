@@ -176,3 +176,9 @@ Reference: https://www.geeksforgeeks.org/bloom-filters-introduction-and-python-i
     - Sever keeps this as persistent connection and send data to client via this.
     - For client to send data, it has to open new connection.
 
+# Guidelines for designing 
+
+1. Choose multiple datacenters or backends. Atleast 3.
+2. Write synchronously: This is what cassandra does using Quorum.
+3. Automate the failover. Example, if the local writes are slow, move to remote writes.
+4. 

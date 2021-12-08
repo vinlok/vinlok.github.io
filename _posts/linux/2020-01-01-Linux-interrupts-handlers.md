@@ -33,7 +33,7 @@ When a device raises interrupt, its IRQ number is sent to processor via the I/O 
 
 RAM Store IDT which has 256 entries. The location of the IDT is stored in processor register know as IDTR (Interrupt Descriptor Table Register)
 
-The IDT has mapping of IRQ number to interrupt handler routine or Interrupt Handler.
+The IDT has mapping of IRQ number to interrupt handler routine or Interrupt Handler or Interrupt Service routine which is part fo device driver.
 
 Interrupt handler is the function in kernel code that executes when an interrupt is raised.
 
@@ -71,11 +71,11 @@ This runs with IRQF_DISABLED flag. Thus needs to be very quick and efficient as 
 2. The device driver author decides what goes in top halve and what in bottom.
 
 3. The bottom halves can be implemented in 3 ways:
-    - Softirqs: Used for block device and network devices.
+    - Softirqs: These are used for time critical component: Used only for block device and network devices.
     - Tasklets: They are implemented on top of softirg
     - Workqueues: Kernel threads.
 
-4. Bottom halves run with interrupts.
+4. Bottom halves run with interrupts and when the kernel is executing the bottom half it is said to be in interrupt context.
 
 # Device drivers
 

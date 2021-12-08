@@ -1,5 +1,6 @@
 #https://leetcode.com/problems/merge-sorted-array/
 
+Note: this is also used for median of two arrays in log(m+n)
 
 def merge_sorted_arrays(nums1,m,nums2,n):
     '''Algo:
@@ -8,7 +9,7 @@ def merge_sorted_arrays(nums1,m,nums2,n):
         - p1 to val before zero
         - p2 to end of a2
 
-    - iterate
+    - iterate using for in reverse
         if p1 val > p2
             then p val == p1 val
                 p--

@@ -6,6 +6,16 @@ categories: ['Linux']
 excerpt_separator: <!--more-->
 ---
 
+# CPU 
+- Two types registers:
+    - status
+    - general purpose
+- CPU can perform operations only on data in registers.
+- CPU needs instructions such as : JUMP, CPY, arithmetic, logical.
+- x86, ARM, MIPS are type of processor with instruction sets.
+- The sequence is : Processor registers -> Processor Cache -> random access Memory -> hard drives
+- Generally when data is copied, rather than just copying only the bytes, bytes surronding this is also copied.
+- 
 
 # Processes
 
@@ -21,7 +31,9 @@ excerpt_separator: <!--more-->
 <ELF digram here>
 
 - Kernel stores list of running process in circular linker list and each element of LL is of type task_struct which is the process descriptor. This is usually 1.7 KB in size and contains all the information about a process . It defines:
-    - Open files(PPFDT) -> files_struct
+
+    - Open files(PPFDT) -> file_struct
+    - 
     - Memory mapping(page table) -> mm_struct
     - process state
     - signals(received, pending) -> signals_structs
@@ -31,6 +43,19 @@ excerpt_separator: <!--more-->
     - process group ID
     - Priority
     - register values: These are the values which needs to be restored when a context switch happens.
+    - Thread info
+    - Resource Limit -> rlimit struct
+
+
+
+    ![](2021-12-04-16-32-52.png)
+
+# Process task_struct to memory map to page table relation
+
+- Each process is represented by task_struct which is stored at the end of kernel stack for the process.
+- Task struct has pointer to the struct mm of process.
+- mm contains details about processes memory areas and has point to pgd which is page global dir
+- The pgd is essentially the page table for process.
 
 - Inside kernel tasks/processes are referred via their task_struct. There is a macro in kernel CURRENT using which we can access the tast_struct of current running process. When kernel is doing some work for process, the process is said to be in process context.
 
@@ -54,9 +79,20 @@ excerpt_separator: <!--more-->
 
 ![](2021-10-25-08-38-42.png)
 
+## Process termination
+- two ways:
+    1. voluntary : exit()
+    2. In-voluntary: Signal or due to exception
+- In both cases kernel does a do_exit() which clean up the process, mm, ppfd, signals and then invokes a SIGCHLD.
+- The PID of process is not immediately removed as the above clean up needs to be done. During this time, the process is in ZOMBIE state.
+
+### Reparenting:
+- If parent exists before child, then it needs to be reparented or else it will remain zombie for ever wasting memory.
+- Usually a process in processes Group is set as parent, if that does not then kernel sets init as parent.
 ### Daemon process:
     - Started generally as root or as special user
     - It must be started as child of init and not connected to any terminal.
+    - nohup can be used to start a process in backgroud and in this case init becomes it parent.
     
 # Virtual Memory for processes
 - The memory given to each user space process is called as process address space or virtual address space. It starts at 0 and goes all the way up to 2^32.
@@ -131,15 +167,6 @@ The above code is compiled into ELF format described above and the memory map lo
 - Free() function deallocates the memory block (or set of pages). It does not lower the program break (brk()) instead adds these block to list of available blocks.
 - Next time when malloc requests for memory, it is given from these blocks if sufficient space is present.
 - When a process starts, only the pages for .text, .data and .bss (zeroed pages for size of bss)
-
-
-
-# Process task_struct to memory map to page table relation
-
-- Each process is represented by task_struct which is stored at the end of kernel stack for the process.
-- Task struct has pointer to the struct mm of process.
-- mm contains details about processes memory areas and has point to pgd which is page global dir
-- The pgd is essentially the page table for process.
 
 
 # Process and files relation
@@ -335,7 +362,16 @@ In this case O_WRONLY flags does not ensure if the file is already open by other
 
 
 # Context Switching
-- Suspent the process by moving it to sleep state.
-- Copy the contents of CPU registers to memory or the task_struct.
-- copy back the context of new process from its task_struct to cpu registers.
-- Flush TLB.
+
+When does Context Switching happens:
+
+1. When a processes time slice has expired, then a timer interrupt is sent and process is put in sleep state.
+2. When a system call such as write is made.
+
+after this:
+- Scheduler kicks in to figure out which thread should run next.
+
+- Copy the contents of CPU registers of current task (task can be process or thread!) to memory or the task_struct.
+- copy back the context of new process from its task_struct to cpu registers also reffered as hardware context
+- Flush TLB and copy the PGD (page table)
+- 

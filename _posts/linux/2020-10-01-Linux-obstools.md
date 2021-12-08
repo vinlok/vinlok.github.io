@@ -117,4 +117,42 @@ Steps
 1. ps -aux | grep find -> to see if the process is alive and get PID
 2. top -cbp 1234
     - Here check for TIME and %CPU field
-3. ps -ef 
+3. One you have the PIC, then you can cat /proc/pid/wchan. wchan is the part of kernel code the process is executing/waiting.
+
+4. Now, you can do a cat on  /proc/pid/status and check:
+    - State : (DIRSTtZ)
+    - Voluntary CTX switches
+    - nonVoluntary CTX switches.
+
+5. Now if the strace is getting stuck, you can 
+cat /proc/pid/syscall 
+to see the syscall the process is executing.
+
+6. Here you can see the syscall number the process is stuck executing.
+
+7. Then, you can also run cat /prod/pid/stack to see the stack of the process.
+Hopefully here you can see the call where the process is stuck.
+
+Remediation:
+1. Either do a HUP signal
+2. Kill -9
+
+
+
+# Trobleshooting Network issues
+
+- ping
+1. Does ICMP echo request to destination. The reply to this is ICMP reply.
+2. 
+
+
+- traceroute:
+
+1. Sends icmp packets with ttl as 1 all the way up to the destination.
+2. 
+
+- nc:
+
+nc -zv google.com 80
+
+- 

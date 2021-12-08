@@ -10,6 +10,7 @@ def rotate_array(a,n):
     t=a[l-n:]
 
     print(l,n)
+    print(t)
     for i in range(l-1,n-1,-1):
         print(a[i])
         a[i]=a[i-n]
