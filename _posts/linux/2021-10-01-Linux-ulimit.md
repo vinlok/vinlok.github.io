@@ -4,7 +4,7 @@ title: "Ulimit: 'Too many open files' explained"
 date: 2014-01-25
 categories: ['Linux']
 excerpt_separator: <!--more-->
-
+version: 1
 ---
 
 Every system administrator in his lifetime encounters this error: "Too Many open files". To summarize, this error tells that a given process has hit the limit on max number of opened files by it.

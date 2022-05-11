@@ -4,6 +4,7 @@ title: "Linux interrupts and interrupt handlers"
 date: 2017-01-01
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
 Interrupts are signals to the processors that some event has occured that needs to be processed. Upon being interrupted, CPU has to let got its current task and handle the interrupt.

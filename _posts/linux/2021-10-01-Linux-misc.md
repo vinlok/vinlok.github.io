@@ -4,6 +4,7 @@ title: "Linux Misc"
 date: 2017-01-01
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
 # Users and Groups, Process UID, SetUID

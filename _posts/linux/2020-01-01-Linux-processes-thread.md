@@ -4,6 +4,7 @@ title: "Linux Processes - Threads"
 date: 2017-01-01
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
 - If a process contains single thread, it is called single threaded else, multi threaded.

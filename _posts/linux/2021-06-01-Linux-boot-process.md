@@ -4,6 +4,7 @@ title: "Linux Boot Process"
 date: 2017-3-25
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
 
@@ -23,7 +24,8 @@ However, the registers in 8086 were 16 bit. Hence, it can access 2^16= 64 KB of 
 To handle this, memory segmentation was used: Memory divided into 64 KB segments. 
 The physical address is calculated as: segmentNumber * 16 + offset
 ```
-6. In realmode, the CS and EIP registers of CPU's are used to calculate the reset vector location in memory. This is 16 bytes below 4 GB and points to ROM / BIOS code
+6. In realmode, the CS and EIP
+ registers of CPU's are used to calculate the reset vector location in memory. This is 16 bytes below 4 GB and points to ROM / BIOS code
 
 
 

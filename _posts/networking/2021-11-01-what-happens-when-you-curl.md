@@ -1,3 +1,5 @@
+version: 1
+
 # What happens when you CURL a URL.
 
 - Curl would parse the URL into:

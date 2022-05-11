@@ -4,6 +4,7 @@ title: "Linux Processes - scheduling"
 date: 2017-01-01
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
 - Scheduler is the component of kernel which selects which process to run next thus maximizing processor usage providing illusion of multiple processes are executing together thus multi-tasking. Multitasking systems are of two types:

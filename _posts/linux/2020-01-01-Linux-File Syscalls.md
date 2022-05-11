@@ -4,6 +4,7 @@ title: "Linux File Syscalls"
 date: 2017-01-01
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
  A System Call is controlled entry point into kernel allowing processes to request kernel to perform some actions on process behalf. Kernel makes range of services (or types of syscalls) available to processes via system calls using system calls API. Examples:

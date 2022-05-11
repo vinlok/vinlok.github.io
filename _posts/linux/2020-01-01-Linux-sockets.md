@@ -4,6 +4,7 @@ title: "Linux Sockets"
 date: 2017-3-25
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
 Socket are essentially two ways pipe for communication.

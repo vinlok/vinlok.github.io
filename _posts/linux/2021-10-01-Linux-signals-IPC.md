@@ -4,6 +4,7 @@ title: "Linux Signals"
 date: 2017-01-01
 categories: ['Linux']
 excerpt_separator: <!--more-->
+version: 1
 ---
 
 

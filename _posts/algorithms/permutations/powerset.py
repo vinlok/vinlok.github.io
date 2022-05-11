@@ -72,9 +72,27 @@ def check_iteration():
 
 s="abc"
 
+
+
+
+def power_set1(a):
+    stack=[]
+    p_set=[]
+
+    for i in range(len(a)):
+        l=len(p_set)
+        print(l)
+        for j in range(l):
+            print(f"in {j}")
+            t=p_set[j]+[a[i]]
+            p_set.append(t)
+        p_set.append([a[i]])
+
+        print(p_set)
+
 a=[1,2,3]
 #powerset(s,0,"")
 
-powerset_using_stack(a)
+power_set1(a)
 
 # check_iteration()
